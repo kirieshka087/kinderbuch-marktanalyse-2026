@@ -1,0 +1,662 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Анализ книжных магазинов для проекта в Германии</title><style>
+.local-toc{background:#f5f6f0;border:1px solid #dce1dc;border-radius:6px;padding:12px 16px;margin:20px 0}.local-toc summary{cursor:pointer;color:#17614f;font-size:14px;font-weight:600}.local-toc nav{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:8px 20px;padding-top:14px}.local-toc a{font-size:13px;line-height:1.45;text-decoration:none}
+:root{--ink:#172b32;--muted:#5a6d72;--paper:#f5f3ed;--line:#dce1dc;--accent:#17614f;--gold:#d5aa63}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 'Segoe UI',Arial,sans-serif}a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:anywhere}a:hover{color:#a05e19}aside{position:fixed;inset:0 auto 0 0;width:250px;padding:36px 24px;background:#102e29;color:#fff;overflow:auto}.brand{font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:#b2c9be}.sidebar-title{font-size:25px;line-height:1.25;margin:14px 0 28px;font-weight:600}aside a{display:block;color:#c7d8d1;padding:9px 0;text-decoration:none;font-size:14px;line-height:1.4}aside a:hover{color:white}.side-note{border-top:1px solid #456058;margin-top:24px;padding-top:18px;font-size:12px;color:#a5beb3}main{margin-left:250px;padding:42px 54px 90px;max-width:1600px}.cover{background:#fff;padding:44px;border:1px solid var(--line);border-radius:10px;margin-bottom:28px}.kicker{font-size:12px;color:var(--accent);font-weight:700;letter-spacing:.12em;text-transform:uppercase}.cover h1{font-size:42px;line-height:1.15;margin:18px 0 20px;max-width:880px;letter-spacing:-.025em}.cover p{max-width:850px;font-size:18px;color:var(--muted)}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}.stat{border-top:3px solid var(--gold);padding-top:12px}.stat strong{display:block;font-size:26px;color:var(--ink)}.stat span{font-size:13px;color:var(--muted)}section{background:white;border:1px solid var(--line);border-radius:10px;padding:36px 40px;margin:24px 0}section>h1{margin-top:0;color:var(--accent);font-size:30px;line-height:1.2}h2{font-size:23px;line-height:1.3;margin:38px 0 15px;letter-spacing:-.01em}h3{font-size:19px;margin:28px 0 10px}h4{font-size:17px}p{margin:12px 0}li{margin:6px 0}ul,ol{padding-left:24px}.table-wrap{overflow:auto;margin:22px 0;border:1px solid var(--line);border-radius:7px}table{width:100%;border-collapse:collapse;font-size:13px;line-height:1.5}th{text-align:left;background:#edf2ee;font-weight:600;color:#203c32}td,th{padding:13px 14px;vertical-align:top;border-bottom:1px solid var(--line);min-width:115px}td:first-child,th:first-child{min-width:85px}tr:last-child td{border-bottom:0}tbody tr:hover{background:#f7f8f4}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f0f3ee;padding:20px;border-radius:6px;font-size:13px}code{font-size:.9em;background:#f0f3ee;padding:1px 3px;border-radius:3px}blockquote{border-left:3px solid var(--gold);margin:18px 0;padding:10px 20px;background:#fbf7ef}hr{border:0;border-top:1px solid var(--line);margin:32px 0}.toolbar{display:flex;gap:14px;flex-wrap:wrap;align-items:center;padding:18px;background:#edf2ee;border-radius:8px;margin-bottom:22px}.toolbar label{font-size:13px}.toolbar input,.toolbar select{font:inherit;border:1px solid #b8c9bf;background:white;padding:9px;border-radius:4px}.toolbar input{min-width:240px}button{background:var(--accent);color:white;border:0;border-radius:5px;padding:10px 15px;font:inherit;cursor:pointer}.top-actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:20px}.small{font-size:13px;color:var(--muted)}.priority{font-weight:700;white-space:nowrap}.p0{color:#9a441f}.p1{color:#17614f}.p2{color:#5a6d72}.tag{display:inline-block;font-size:12px;background:#edf2ee;border-radius:20px;padding:4px 10px;margin-right:5px}.hidden{display:none!important}
+@media(max-width:1000px){aside{position:relative;width:100%;padding:20px 24px}.sidebar-title{font-size:21px;margin:6px 0 12px}aside nav{display:flex;gap:14px;flex-wrap:wrap}aside a{padding:3px 0}.side-note{display:none}main{margin:0;padding:20px}section{padding:26px 24px}.cover{padding:28px}.cover h1{font-size:32px}.stats{gap:12px}.stat strong{font-size:23px}}
+@media(max-width:540px){body{font-size:15px}main{padding:12px}.cover h1{font-size:29px}.cover{padding:24px}section{padding:24px 18px}.stats{grid-template-columns:1fr}.stat{padding-top:8px}.cover p{font-size:16px}h2{font-size:21px}.toolbar input{min-width:100%;width:100%}}
+@media print{aside,.toolbar,.top-actions{display:none!important}body{background:#fff;font-size:10pt}main{margin:0;padding:0;max-width:none}section,.cover{border:0;padding:0;margin:0 0 24pt;border-radius:0}section{break-before:page}h1,h2,h3{break-after:avoid}.cover h1{font-size:28pt}.cover{min-height:220pt}.table-wrap{overflow:visible;border:0}table{font-size:8pt}th,td{padding:6pt;min-width:0!important}thead{display:table-header-group}tr{break-inside:avoid}a{color:inherit}pre{font-size:8pt}p,li{orphans:3;widows:3}.hidden{display:revert!important}}
+</style></head><body><aside><div class="brand">Исследование и проектирование</div><div class="sidebar-title">Детские книги<br>Германия 3–16</div><nav><a href="#overview">Выводы и состав выборки</a><a href="#method">Методика и ограничения</a><a href="#de-large">Германия крупные сети</a><a href="#de-niche">Германия детские магазины</a><a href="#de-retail">Германия другие сети</a><a href="#ru-large">Россия крупные сети</a><a href="#ru-retail">Россия другие магазины</a><a href="#sources">Реестр источников</a></nav><div class="side-note">Исследование 20 октября 2026<br>Обновлено 22 октября 2026<br>Без универсальных маркетплейсов<br><br>Факты, рекомендации и гипотезы обозначены отдельно.</div></aside><main><header class="cover"><div class="kicker">Книжная торговля · Германия и Россия</div><h1>Анализ книжных магазинов для проекта в Германии</h1><p>20 немецких и 10 российских книжных витрин: структура, подбор книг, карточки, сервисы и решения для сайта детских книг 3–16 лет.</p><div class="stats"><div class="stat"><strong>20</strong><span>книжных витрин Германии</span></div><div class="stat"><strong>10</strong><span>книжных магазинов России</span></div><div class="stat"><strong>139</strong><span>ссылок в реестре источников</span></div></div><div class="top-actions"><button onclick="window.print()">Печать / сохранить PDF</button><span class="small">Навигация слева · поиск по документу Ctrl+F · ссылки ведут к источникам</span></div></header><section id="overview"><h1 id="overview-h1">Конкурентный анализ книжных магазинов и стратегия сайта</h1>
+<details class="local-toc"><summary>Разделы этой части</summary><nav><a href="#overview-h2">Основное решение</a><a href="#overview-h3">Как устроен результат</a><a href="#overview-h4">Состав немецкой основной выборки</a><a href="#overview-h5">Состав российской основной выборки</a><a href="#overview-h6">Что полезно взять у конкурентов</a><a href="#overview-h7">Основа нового магазина</a><a href="#overview-h8">Что можно и нельзя утверждать по этому исследованию</a></nav></details>
+<p><strong>Рынок проекта:</strong> Германия. <strong>Читатели:</strong> 3–16 лет. <strong>Дата исследования:</strong> 20 октября 2026. <strong>Рабочий язык документа:</strong> русский. <strong>Возрастная рамка обновлена:</strong> 22 октября 2026.</p>
+<p>Книги для детей до 3 лет не входят в целевой каталог и требования проекта. Возрастные разделы младше 3 лет в профилях конкурентов сохранены как факты об их ассортименте. Маркировка 0+ не равна рекомендации для младенцев и сама по себе не исключает книгу, подходящую детям 3–16 лет.</p>
+<h2 id="overview-h2">Основное решение</h2>
+<p>Магазину стоит строить преимущество вокруг помощи в выборе: возраст, язык, интерес, уровень самостоятельного чтения и возможность посмотреть книгу до заказа. Базовая коммерческая часть должна давать точное издание, реальное наличие, понятную доставку и простое оформление. Огромный каталог сам по себе не отличает новый проект от больших сетей.</p>
+<p>Рекомендуемое направление позиционирования: <strong>отобранные детские книги с объяснением, кому они подойдут, и прозрачной доставкой по Германии</strong>. Это проектная рекомендация, а не установленное УТП существующего магазина. Обещание персонального подбора, упаковки и быстрого ответа добавляется только при готовности команды выполнять сервис.</p>
+<p>Из сравнений следует конкретный продуктовый каркас: четыре возрастных входа: 3–5, 6–8, 9–12 и 13–16 лет; форматы; интересы/жизненные ситуации; серии; качественная карточка издания с разворотами; редакционные подборки; доступный поиск; прозрачная покупка. Сайт создаётся с нуля; приоритет — понятные страницы и удобная покупка.</p>
+<h2 id="overview-h3">Как устроен результат</h2>
+<ol>
+<li>Основная немецкая выборка — 20 книжных витрин, включая крупные сети, книжные порталы и специализированные магазины.</li>
+<li>Российская выборка — 10 книжных магазинов как примеры каталога, контента и сервисов.</li>
+<li>Отдельно — издательские магазины как дополнительные примеры; они не подменяют основные 20 + 10.</li>
+<li>Краткое ТЗ — основные страницы и функции нового магазина: каталог, карточка книги, поиск и оформление заказа.</li>
+</ol>
+<p>В немецкой группе есть несколько витрин одного холдинга и несколько магазинов на общей сервисной платформе. Они полезны как разные покупательские интерфейсы, но не считаются независимыми подтверждениями эффективности одинаковых блоков. Не суммировать их аудитории или доли рынка.</p>
+<h2 id="overview-h4">Состав немецкой основной выборки</h2>
+<p>Порядок — порядок анализа, не рейтинг выручки/посещаемости. Сопоставимого подтверждённого рейтинга 20 лидеров по продажам детских книг в открытых данных не получено. «Топ» трактуется здесь как рабочая конкурентная выборка известных сетей и релевантных книжных магазинов; нишевые участники не объявляются крупнейшими.</p>
+<div class="table-wrap"><table><thead><tr><th>ID</th><th>Магазин</th><th>Роль в сравнении</th><th>Особая ценность для проекта</th></tr></thead><tbody>
+<tr><td>DE01</td><td><a href="https://www.thalia.de/kategorie/kinderbuecher-970/" target="_blank" rel="noopener">Thalia</a></td><td>Крупная книжная сеть</td><td>Масштаб каталога, возраст/тема/формат, мнения книготорговцев</td></tr>
+<tr><td>DE02</td><td><a href="https://www.hugendubel.de/de" target="_blank" rel="noopener">Hugendubel</a></td><td>Книжная сеть</td><td>Возрастные входы, герои/серии, локальное получение</td></tr>
+<tr><td>DE03</td><td><a href="https://www.buecher.de/" target="_blank" rel="noopener">bücher.de</a></td><td>Отдельная книжная витрина группы Thalia</td><td>Коммерческий каталог, варианты изданий и доступность</td></tr>
+<tr><td>DE04</td><td><a href="https://www.genialokal.de/" target="_blank" rel="noopener">genialokal</a></td><td>Портал книжных магазинов</td><td>Выбор своего магазина, локальный остаток и доставка</td></tr>
+<tr><td>DE05</td><td><a href="https://www.buchkatalog.de/" target="_blank" rel="noopener">Buchkatalog</a></td><td>Книжный портал с партнёрами</td><td>Контент/каталог и связка онлайн-заказа с книготорговлей</td></tr>
+<tr><td>DE06</td><td><a href="https://www.buch7.de/" target="_blank" rel="noopener">buch7</a></td><td>Книжный интернет-магазин</td><td>Социальная миссия и редакционная рекомендация</td></tr>
+<tr><td>DE07</td><td><a href="https://www.lehmanns.de/" target="_blank" rel="noopener">Lehmanns</a></td><td>Книжная витрина группы Thalia</td><td>Предметная и библиографическая навигация</td></tr>
+<tr><td>DE08</td><td><a href="https://www.kulturkaufhaus.de/de/start" target="_blank" rel="noopener">Dussmann Kulturkaufhaus</a></td><td>Книжно-культурная торговля</td><td>Рекомендации сотрудников и культурные события</td></tr>
+<tr><td>DE09</td><td><a href="https://graff.buchhandlung.de/" target="_blank" rel="noopener">Graff</a></td><td>Книжный магазин с онлайн-витриной</td><td>Тематические посадочные и региональный сервис</td></tr>
+<tr><td>DE10</td><td><a href="https://www.rupprecht.de/shop/" target="_blank" rel="noopener">Rupprecht</a></td><td>Книжная сеть</td><td>Возраст, жанры и онлайн/офлайн-сервис</td></tr>
+<tr><td>DE11</td><td><a href="https://www.kinderbuch.eu/" target="_blank" rel="noopener">Kinderbuch.eu</a></td><td>Детский книжный магазин</td><td>Низкая цена через состояние/остатки с объяснением</td></tr>
+<tr><td>DE12</td><td><a href="https://kibula.de/" target="_blank" rel="noopener">Kibula</a></td><td>Специализированный детский книжный магазин</td><td>Отбор книг, четыре возрастные группы и форматы</td></tr>
+<tr><td>DE13</td><td><a href="https://www.pustet.de/shop/" target="_blank" rel="noopener">Pustet</a></td><td>Книжная сеть</td><td>Полноценная детская посадочная на общей сервисной платформе</td></tr>
+<tr><td>DE14</td><td><a href="https://www.heymann-buecher.de/shop/magazine/9/kinderbuecher.html" target="_blank" rel="noopener">Heymann</a></td><td>Книжная сеть</td><td>Возраст/первые читатели, сезонные рекомендации</td></tr>
+<tr><td>DE15</td><td><a href="https://www.rombach.de/shop/" target="_blank" rel="noopener">Rombach</a></td><td>Книжная торговля с интернет-магазином</td><td>Детское/подростковое чтение, учреждения, предзаказы</td></tr>
+<tr><td>DE16</td><td><a href="https://www.schmitt-hahn.de/shop/" target="_blank" rel="noopener">Schmitt &amp; Hahn</a></td><td>Книжная сеть</td><td>Темы, BookTok, наличие и получение в магазине</td></tr>
+<tr><td>DE17</td><td><a href="https://www.buecher-wenner.de/" target="_blank" rel="noopener">Bücher Wenner</a></td><td>Книжный магазин с собственной/партнёрской витриной</td><td>Различение своего склада, поставщика и сервиса</td></tr>
+<tr><td>DE18</td><td><a href="https://www.schmitzjunior.de/" target="_blank" rel="noopener">schmitz junior</a></td><td>Детский книжный магазин + партнёрская покупка</td><td>Авторские советы, журнал и программы для школ</td></tr>
+<tr><td>DE19</td><td><a href="https://www.buchhandlung-godolt.de/" target="_blank" rel="noopener">Godolt</a></td><td>Книжный магазин с детской экспертизой</td><td>Личный отбор и помощь с заказом</td></tr>
+<tr><td>DE20</td><td><a href="https://www.reuffel.de/" target="_blank" rel="noopener">Reuffel</a></td><td>Книжная сеть</td><td>Библиографические карточки и филиальный остаток</td></tr>
+</tbody></table></div>
+<p>Это книжная торговля, а не 20 чисто детских сетей. Часть магазинов также продаёт музыку, подарки и игры; сравнение относится к их книжным разделам. Amazon, Wildberries, Ozon, Tchibo, Smyths и другие универсальные торговые площадки в основную выборку не включены. Osiander не считается отдельной действующей онлайн-витриной: <a href="https://www.thalia.de/vorteile/osiander/informationen" target="_blank" rel="noopener">информация Thalia о переносе</a>.</p>
+<h2 id="overview-h5">Состав российской основной выборки</h2>
+<div class="table-wrap"><table><thead><tr><th>ID</th><th>Магазин</th><th>Для чего сравниваем</th></tr></thead><tbody>
+<tr><td>RU01</td><td><a href="https://www.chitai-gorod.ru/" target="_blank" rel="noopener">Читай-город</a></td><td>Категорийная глубина, циклы/серии, товарные характеристики</td></tr>
+<tr><td>RU02</td><td><a href="https://www.bookvoed.ru/" target="_blank" rel="noopener">Буквоед</a></td><td>Книжная сеть, коммерческая карточка и содержание категорий</td></tr>
+<tr><td>RU03</td><td><a href="https://www.labirint.ru/" target="_blank" rel="noopener">Лабиринт</a></td><td>Детский ассортимент, фильтры и подробность выбора</td></tr>
+<tr><td>RU04</td><td><a href="https://book24.ru/" target="_blank" rel="noopener">Book24</a></td><td>Книжная витрина, фильтры и связи товара</td></tr>
+<tr><td>RU05</td><td><a href="https://www.podpisnie.ru/" target="_blank" rel="noopener">Подписные издания</a></td><td>Редакционный отбор, карточки иллюстрированных книг</td></tr>
+<tr><td>RU06</td><td><a href="https://www.respublica.ru/knigi/detskie-knigi" target="_blank" rel="noopener">Республика</a></td><td>Подарочные сценарии и доступность по каналу</td></tr>
+<tr><td>RU07</td><td><a href="https://www.moscowbooks.ru/" target="_blank" rel="noopener">Москва</a></td><td>Подробные книжные данные и поиск конкретного издания</td></tr>
+<tr><td>RU08</td><td><a href="https://www.biblio-globus.ru/" target="_blank" rel="noopener">Библио-Глобус</a></td><td>Данные издания, наличие и опубликованные магазинные лидеры</td></tr>
+<tr><td>RU09</td><td><a href="https://piotrovsky.store/" target="_blank" rel="noopener">Пиотровский</a></td><td>Детские темы, поиск по переводчику/редактору, остаток по магазинам</td></tr>
+<tr><td>RU10</td><td><a href="https://wordorder.ru/catalog-ru/detskaya-literatura/" target="_blank" rel="noopener">Порядок слов</a></td><td>Отобранный ассортимент и прозрачный заказ с подтверждением наличия</td></tr>
+</tbody></table></div>
+<p>Российская группа — качественная выборка, а не доказанный рейтинг крупнейших магазинов. Доставка российских магазинов в Германию не предполагается автоматически и не нужна для их использования как UX-примеров. У Библио-Глобуса актуальный checkout и полные тарифы в этой проверке не подтверждены; у «Порядка слов» оплата следует после ручного подтверждения наличия. Эти различия сохранены в профилях. Маршак и Гиперион не включены из-за недостаточного подтверждения рабочей интернет-покупки; Фаланстер оставлен вне основной десятки как дистанционный заказ без полноценной товарной витрины.</p>
+<h2 id="overview-h6">Что полезно взять у конкурентов</h2>
+<p>В таблице только наблюдаемые примеры или явно сформулированные проектные выводы. Оценки относятся к наблюдаемым страницам и функциям.</p>
+<div class="table-wrap"><table><thead><tr><th>Практика</th><th>Подтверждённые примеры</th><th>Зачем проекту</th></tr></thead><tbody>
+<tr><td>Возраст как вход в каталог</td><td>Thalia, Hugendubel, Kibula</td><td>Покупатель не обязан знать автора</td></tr>
+<tr><td>Возраст и уровень чтения раздельно</td><td>Детские рубрики Thalia; специальные программы издательских референсов</td><td>Ребёнок одного возраста может читать по-разному</td></tr>
+<tr><td>Формат и язык издания</td><td>Thalia, buch7, Подписные издания</td><td>Не перепутать нужную физическую книгу с eBook или другим переводом</td></tr>
+<tr><td>Выбор по теме/ситуации</td><td>Graff, Thalia, Kibula</td><td>Родитель ищет решение выбора, а не только жанр</td></tr>
+<tr><td>Превью книги</td><td>Thalia; издательские примеры Beltz/Arena</td><td>Оценить иллюстрации и объём текста до заказа</td></tr>
+<tr><td>Мнение книготорговца</td><td>Thalia, Dussmann, buch7, schmitz junior</td><td>Показать основание рекомендации</td></tr>
+<tr><td>Серия и последовательность</td><td>Читай-город, Thalia</td><td>Продолжить понравившееся чтение</td></tr>
+<tr><td>Локальная доступность</td><td>genialokal, Reuffel, Республика</td><td>Указать место и способ получения</td></tr>
+<tr><td>Прозрачные разные состояния поставки</td><td>Schmitt &amp; Hahn, Bücher Wenner</td><td>Не смешивать свой склад и заказ у поставщика</td></tr>
+<tr><td>Особое состояние товара</td><td>Kinderbuch.eu</td><td>Объяснить цену и ожидания от Mängelexemplar</td></tr>
+<tr><td>Сильное обещание/миссия</td><td>buch7; тематические издатели</td><td>Сформулировать причину выбора магазина</td></tr>
+<tr><td>Отзывы отдельно от редакции</td><td>Thalia; у ряда издательств только Pressestimmen</td><td>Не выдавать прессу за покупателей</td></tr>
+<tr><td>Проверка общего шаблона</td><td>Схожие Libri-витрины Graff/Pustet и других</td><td>Не копировать одинаковые тексты как уникальный приём</td></tr>
+<tr><td>Актуальность текста наличия</td><td>Пример противоречия у Республики</td><td>Не оставлять «всё в наличии» на недоступном товаре</td></tr>
+</tbody></table></div>
+<h2 id="overview-h7">Основа нового магазина</h2>
+<p>До разработки определить ассортимент, язык книг и интерфейса, способы оплаты и условия доставки. Затем спроектировать главную, каталог, карточку книги, поиск, корзину и оформление заказа. Сайт создаётся с нуля.</p>
+<p>Дополнительные функции — избранное, отзывы, личный кабинет, уведомления и подарочные сертификаты — включать по выбору владельца магазина. Подробное содержание подборок и их обновление магазин определяет самостоятельно.</p>
+<h2 id="overview-h8">Что можно и нельзя утверждать по этому исследованию</h2>
+<ul>
+<li>Проверены первичные страницы, доступные поисковые копии и выборочно живой интерфейс; способ и ограничения указаны у каждого профиля.</li>
+<li>Наличие каталога, корзины и правил доставки — признак действующей торговли; оплата и фактическая доставка не проверялись контрольными покупками.</li>
+<li>Не выполнен сплошной технический crawl всех доменов, тест каждого фильтра, мобильный аудит каждой страницы, аудит Core Web Vitals или доказательство индексации всех URL.</li>
+<li>Существующего сайта нет. Краткое ТЗ описывает создание нового магазина для аудитории 3–16 лет.</li>
+</ul>
+<p>Источники расположены рядом с наблюдениями, чтобы дизайнер и разработчик могли открыть конкретную категорию, товар или страницу сервиса. Рекомендации не следует понимать как требование копировать все функции больших сетей.</p></section><section id="method"><h1 id="method-h1">Методика и достоверность</h1>
+<details class="local-toc"><summary>Разделы этой части</summary><nav><a href="#method-h2">Итоговый состав и границы независимости</a><a href="#method-h3">Как читать доказательства</a><a href="#method-h4">Как использованы российские магазины</a><a href="#method-h5">Уровни выводов</a></nav></details>
+<h2 id="method-h2">Итоговый состав и границы независимости</h2>
+<p><strong>Выбранная десятка:</strong> Thalia, Hugendubel, bücher.de, genialokal, buchkatalog, buch7, Lehmanns, Kulturkaufhaus Dussmann, Buchhandlung Graff, Rupprecht.</p>
+<p>Это <strong>10 активных отдельных витрин, но не 10 доказанно независимых компаний или платформ</strong>:</p>
+<ul>
+<li><strong>Thalia, bücher.de и Lehmanns — одна корпоративная группа.</strong> Их можно сравнивать как разные действующие витрины, но нельзя суммировать как три независимых конкурентных бизнеса. <a href="https://unternehmen.thalia.de/pressemeldungen/thalia-uebernimmt-den-online-buchhaendler-buecher-de/" target="_blank" rel="noopener">Первичное сообщение о покупке bücher.de</a>, <a href="https://unternehmen.thalia.de/geschaeftsfelder/lehmanns-media/" target="_blank" rel="noopener">актуальная корпоративная страница Lehmanns</a>.</li>
+<li><strong>Osiander не включён:</strong> открытие <code>https://www.osiander.de/</code> через web-инструмент привело на <a href="https://www.thalia.de/vorteile/osiander/informationen" target="_blank" rel="noopener">страницу Thalia об объединении</a>. На ней прямо сказано, что цифровые сервисы и покупки перенесены на Thalia; сохранение самостоятельных офлайн-магазинов Osiander не создаёт отдельную онлайн-витрину. В дополнительной проверке подтверждена актуальная подпись в футере Thalia: «Osiander — online bei Thalia».</li>
+<li><strong>genialokal и Buchkatalog — порталы книжной торговли с сетью локальных магазинов</strong>, а не по одному независимому магазину на каждого участника. Считать каждый пункт выдачи самостоятельным конкурентным сайтом было бы неверно. <a href="https://www.genialokal.de/Ueber-uns/" target="_blank" rel="noopener">genialokal: о проекте</a>, <a href="https://www.buchkatalog.de/aboutUs" target="_blank" rel="noopener">Buchkatalog: модель работы</a>.</li>
+<li>У Graff и Rupprecht в футере подтверждён сервис-партнёр <strong>Libri GmbH</strong>. Общий поставщик сервиса не доказывает общего владельца. Полный аудит бенефициаров всех остальных компаний не проводился; юридическую независимость всех десяти не заявляем.</li>
+</ul>
+<p>В список не добавлены Amazon, маркетплейсы и универсальные ритейлеры. Dussmann оставлен как книжный/культурный конкурент из исходного задания; исследуется его книжная витрина, хотя на сайте также представлены музыка, ноты и другие культурные товары. Эти магазины продают детские книги, но не обязательно специализируются исключительно на них.</p>
+<h2 id="method-h3">Как читать доказательства</h2>
+<ul>
+<li><strong>WEB</strong> — первичная страница прочитана web-инструментом в ходе исследования. Поиск использовался для обнаружения адресов, а не для оценки позиций.</li>
+<li><strong>UI</strong> — содержимое реально загрузилось в браузере: зафиксированы заголовок, элементы каталога, карточка или условия доставки. Это особенно существенно для Lehmanns, Dussmann, Graff и Rupprecht, где web-инструмент иногда получал 403, тайм-аут или JavaScript-заглушку.</li>
+<li><strong>Не подтверждено</strong> означает недостаток наблюдений, а не доказанное отсутствие функции.</li>
+<li>Активность означает доступный каталог и товарную карточку с коммерческими элементами. Оплата, оформление заказа и фактическая доставка не тестировались.</li>
+<li>Цены, сроки и наличие — снимок на дату проверки. Сведения о доставке ниже относятся к Германии, если явно не указано другое.</li>
+<li>«SEO-контент» здесь — наблюдаемый текст посадочной страницы, заголовки и внутренние ссылки. Наличие текста не доказывает его уникальность, индексацию или результативность.</li>
+<li><strong>Трафиковый топ не установлен ни для одного сайта.</strong> Нет Search Console, аналитики, выгрузок Semrush/Ahrefs/Sistrix или базы частотностей. Внутримагазинные Bestseller и Verkaufsrang не являются позициями в Google.</li>
+</ul>
+<h2 id="method-h4">Как использованы российские магазины</h2>
+<p>Это источники примеров выбора и представления книг. Российская поисковая частотность, механики скидок и условия доставки не приняты за данные Германии. Подробно исследованные первые четыре магазина дополнены шестью отдельными проверенными профилями; методы различаются и помечены. Не проводилась контрольная покупка, сплошной crawl и независимый аудит исполнения сервиса.</p>
+<h2 id="method-h5">Уровни выводов</h2>
+<p>Факт — наблюдаемый элемент/текст конкретной страницы с ссылкой; интерпретация — его роль в покупательском сценарии; требование — предлагаемое устройство проекта; поисковая гипотеза — фраза для будущей проверки. Числовой рейтинг частотности, реальные клики и доли трафика отсутствуют. Сходные витрины одного холдинга/платформы не считаются независимыми доказательствами эффективности.</p></section><section id="de-large"><h1 id="de-large-h1">Германия крупные книжные магазины и сети</h1>
+<details class="local-toc"><summary>Разделы этой части</summary><nav><a href="#de-large-h2">1. Thalia</a><a href="#de-large-h5">2. Hugendubel</a><a href="#de-large-h8">3. bücher.de</a><a href="#de-large-h11">4. genialokal</a><a href="#de-large-h14">5. Buchkatalog</a><a href="#de-large-h17">6. buch7</a><a href="#de-large-h20">7. Lehmanns</a><a href="#de-large-h23">8. Kulturkaufhaus Dussmann</a><a href="#de-large-h26">9. Buchhandlung Graff</a><a href="#de-large-h29">10. Rupprecht — замена Osiander</a></nav></details>
+<h2 id="de-large-h2">1. Thalia</h2>
+<h3 id="de-large-h3">Первичные URL</h3>
+<ul>
+<li>Категория: <a href="https://www.thalia.de/kategorie/kinderbuecher-970/" target="_blank" rel="noopener">Kinderbücher</a>.</li>
+<li>Дополнительная категория: <a href="https://www.thalia.de/kategorie/kinderbuecher-27200/" target="_blank" rel="noopener">детские серии</a>.</li>
+<li>Товар: <a href="https://www.thalia.de/shop/home/artikeldetails/A1077532229" target="_blank" rel="noopener">Die Grüffelo-Oma</a>.</li>
+<li>Доставка: <a href="https://www.thalia.de/hilfe/kaufprozess/versand-lieferung" target="_blank" rel="noopener">Versand &amp; Lieferung</a>.</li>
+</ul>
+<p><strong>Адрес проверен по содержимому:</strong> у <code>kinderbuecher-970/</code> H1 — Kinderbücher, есть реальные детские товары. Числовые идентификаторы не выводились из названия. Адрес <code>kinderbuecher-10049/</code> не использовать: в дополнительной UI-проверке установлено, что он ведёт на Polnische Bücher Schule &amp; Lernen. Ранее опробованный адрес с <code>1077</code> также не используется как доказательство категории.</p>
+<h3 id="de-large-h4">Подтверждённые элементы</h3>
+<p><strong>WEB, категория.</strong> Навигация по возрасту, темам, чтению вслух, первым книгам для самостоятельного чтения, иллюстрированным и познавательным книгам; отдельные входы в Antolin, двуязычные книги, классику и награждённые книги. Есть новинки, совет по чтению, магазинные бестселлеры и сезонные подборки. В каталоге показаны названия фильтров: язык, цена, наличие, автор, серия, дата выхода, возрастная рекомендация, переплёт и Book Tropes; присутствует сортировка. Проверено наличие контролов, не корректность каждой комбинации.</p>
+<p><strong>Тексты и навигация:</strong> внизу категории вопросы о выборе детских книг и книгах для чтения вслух, с внутренними ссылками на связанные разделы.</p>
+<p><strong>WEB, товар.</strong> Описание, возраст от 4 лет, издатель, страницы, язык, ISBN 9783407790699, отзывы и выбор точки Click &amp; Collect. Показанный сайтом Verkaufsrang не используется как SEO-метрика.</p>
+<p><strong>WEB, доставка.</strong> Заказ хотя бы с одной печатной книгой или аудиокнигой доставляется по Германии бесплатно. Для прочего ассортимента действуют отдельные условия; нельзя переносить бесплатность на любую корзину.</p>
+<p><strong>Отличие / интерпретация:</strong> полезный пример сочетания редакционной посадочной с фильтруемым каталогом и локальным получением. Пересечение с bücher.de следует учитывать как практику одной группы.</p>
+<h2 id="de-large-h5">2. Hugendubel</h2>
+<h3 id="de-large-h6">Первичные URL</h3>
+<ul>
+<li>Детская посадочная: <a href="https://www.hugendubel.de/de/category/9/kinderbuecher.html" target="_blank" rel="noopener">Kinderbücher</a>.</li>
+<li>Дополнительный листинг: <a href="https://www.hugendubel.de/de/category/80366/kinder_jugendbuecher.html" target="_blank" rel="noopener">Kinder- &amp; Jugendbücher — Taschenbücher</a>.</li>
+<li>Товар: <a href="https://www.hugendubel.de/de/buch_gebunden/daniel_bleckmann-dunkle_kuenste_1_pudel_panik-52704662-produkt-details.html" target="_blank" rel="noopener">Dunkle Künste 1. Pudel-Panik</a>.</li>
+<li>Доставка: <a href="https://hilfe.hugendubel.de/support/solutions/articles/103000187328-wie-hoch-sind-die-zu-erwartenden-versandkosten-" target="_blank" rel="noopener">официальная справка о стоимости</a>.</li>
+</ul>
+<h3 id="de-large-h7">Подтверждённые элементы</h3>
+<p><strong>WEB, посадочная.</strong> Возрастные переходы 0–3, 3–6, 6–8, 8–10 и 10–12 лет; новинки, тематическая рекомендация, герои и серии, отдельные подборки Dein SPIEGEL. Есть входы в иллюстрированные и познавательные книги. Это навигационные блоки, их не следует называть работающими фасетами.</p>
+<p><strong>WEB, дополнительный листинг.</strong> Подтверждены фильтры новизны, автора, доступности и цены, а также сортировка. Набор относится к проверенному листингу Taschenbücher; не переносится автоматически на все страницы магазина.</p>
+<p><strong>Контент:</strong> на основной посадочной есть развёрнутая презентация выбранной книги, на дополнительном листинге — вводный текст и ссылки на другие форматы и подборки. Полноценный FAQ основной детской страницы не подтверждён.</p>
+<p><strong>WEB, товар.</strong> Обложки и дополнительные изображения, три формата, цена 15 евро, прогноз доставки, немедленная доступность, бесплатная доставка, выбор филиала, описание и другие книги серии. В характеристиках — ISBN 9783751208741, возраст 9–11 лет, иллюстратор, издатель и объём.</p>
+<p><strong>WEB, доставка.</strong> Заказы с книгой или аудиокнигой бесплатны в Германии; для иных корзин справка указывает альтернативные условия бесплатности и стандартную плату 3,95 евро. Есть отдельный платный Premium-Versand.</p>
+<p><strong>Отличие / интерпретация:</strong> акцент на возрасте, знакомых героях и редакционном объяснении конкретной книги; карточка хорошо связывает форматы, серию и получение в филиале.</p>
+<h2 id="de-large-h8">3. bücher.de</h2>
+<h3 id="de-large-h9">Первичные URL</h3>
+<ul>
+<li>Категория: <a href="https://www.buecher.de/kategorie/kinderbuecher-970/" target="_blank" rel="noopener">Kinderbücher</a>.</li>
+<li>Возрастные входы: <a href="https://www.buecher.de/kategorie/nach-alter-1230/" target="_blank" rel="noopener">Nach Alter</a>.</li>
+<li>Товар: <a href="https://www.buecher.de/shop/home/artikeldetails/A1076826761" target="_blank" rel="noopener">School of Talents 9: Neunte Stunde: Schatzfieber!</a>.</li>
+<li>Доставка: <a href="https://www.buecher.de/hilfe/kaufprozess/versand-lieferung" target="_blank" rel="noopener">Versand &amp; Lieferung</a>.</li>
+<li>Статус магазина и объединение с bol.de: <a href="https://www.buecher.de/hilfe/faq-bol-buecher" target="_blank" rel="noopener">официальный FAQ</a>.</li>
+</ul>
+<h3 id="de-large-h10">Подтверждённые элементы</h3>
+<p><strong>WEB.</strong> Категория и товар остаются на buecher.de. Есть возрастные входы до 2 лет и от 2, 4, 6, 8, 10 лет; блоки детских миров и персонажей, новинок, будущих выпусков и персональных рекомендаций. Наличие заголовка персональных рекомендаций не доказывает качество персонализации для конкретного пользователя.</p>
+<p><strong>Фильтры:</strong> язык, цена, наличие, авторы, серии, дата выхода, возраст, переплёт и Book Tropes, плюс сортировка. Названия и структура сильно пересекаются с Thalia; в ресурсах видны домены thalia.media. Это наблюдаемое сходство, не аудит всей технической архитектуры.</p>
+<p><strong>Тексты и навигация:</strong> тексты о книгах для разных возрастов, чтении как досуге и подборе книги по возрасту, теме, автору и серии.</p>
+<p><strong>WEB, товар.</strong> Название с пояснением аудитории от 8 лет, форматы, описание, возраст и другие характеристики, ISBN, отзывы, доставка домой и Click &amp; Collect.</p>
+<p><strong>WEB, доставка.</strong> Заказ с печатной книгой или аудиокнигой бесплатен в Германии. Для прочего ассортимента страница указывает порог более 20 евро, ниже — 2,95 евро; граничное значение ровно 20 евро в checkout отдельно не тестировалось.</p>
+<p><strong>Группа:</strong> покупка Thalia подтверждена первичным сообщением, текущий FAQ описывает объединение bücher.de и bol.de с 21.01.2026. Не считать bol.de дополнительной независимой витриной.</p>
+<p><strong>Отличие / интерпретация:</strong> отдельный бренд той же группы с более низким заявленным порогом бесплатной доставки некнижной корзины. Это отличие условий, не доказательство ценового преимущества для книг.</p>
+<h2 id="de-large-h11">4. genialokal</h2>
+<h3 id="de-large-h12">Первичные URL</h3>
+<ul>
+<li>Контентная посадочная: <a href="https://www.genialokal.de/Produktseiten/Kinderbuecher/" target="_blank" rel="noopener">Kinderbücher</a>.</li>
+<li>Каталог: <a href="https://www.genialokal.de/Produkte/Buecher/Kinderbuecher/Alle-Kinderbuecher/" target="_blank" rel="noopener">Alle Kinderbücher</a>.</li>
+<li>Товар: <a href="https://www.genialokal.de/Produkt/Eric-Carle/Die-kleine-Raupe-Nimmersatt_lid_6807617.html" target="_blank" rel="noopener">Die kleine Raupe Nimmersatt</a>.</li>
+<li>Доставка: <a href="https://www.genialokal.de/Hilfe/Versandkosten/" target="_blank" rel="noopener">Versandkosten</a>.</li>
+<li>Модель сети: <a href="https://www.genialokal.de/Ueber-uns/" target="_blank" rel="noopener">Über uns</a>.</li>
+</ul>
+<h3 id="de-large-h13">Подтверждённые элементы</h3>
+<p><strong>WEB.</strong> Разделены редакционная посадочная и полный товарный список. В меню — до 2 лет, от 2, 3, 4, 5, 6, 8 и 10 лет. На посадочной — магазинные бестселлеры, возрастная подборка, текст о начале чтения и выборе книг, вопросы о детской литературе, аргументация покупки через местный книжный магазин.</p>
+<p><strong>Фильтры:</strong> в извлечённом полном списке видны товары, цены, статусы и пагинация, но именованный набор фасетов не подтверждён. Возрастное меню — подтверждённая навигация, а не доказательство фасетной фильтрации.</p>
+<p><strong>WEB, товар.</strong> Несколько изображений, автор, возраст от 1 года, страницы, EAN 9783836941365, издатель, переводчик, описание и портрет автора. Два коммерческих пути: забрать в выбранном магазине или получить доставкой. Для локального наличия требуется выбрать магазин; значение «0» до выбора места не трактуется как отсутствие книги во всей сети.</p>
+<p><strong>WEB, доставка.</strong> В Германии заказы с печатной книгой или аудиокнигой бесплатны; для остальных корзин указано 3 евро. Заявленный срок почтовой доставки 1–3 рабочих дня. Экспресс в магазин зависит от наличия и времени заказа.</p>
+<p><strong>Отличие / интерпретация:</strong> ценность строится вокруг локального книжного магазина и проверки его запасов. Это другой сценарий выбора продавца, чем просто общенациональная доставка.</p>
+<h2 id="de-large-h14">5. Buchkatalog</h2>
+<h3 id="de-large-h15">Первичные URL</h3>
+<ul>
+<li>Категория: <a href="https://www.buchkatalog.de/buecher-kinder-und-jugend" target="_blank" rel="noopener">Kinder- und Jugend</a>.</li>
+<li>Товар: <a href="https://www.buchkatalog.de/product/4099276460891949670" target="_blank" rel="noopener">Karlchen und die Furchtlose Hand (2). Eine Bande hat Zoff</a>.</li>
+<li>Доставка: <a href="https://www.buchkatalog.de/ZahlungUndVersand" target="_blank" rel="noopener">Zahlung und Versand</a>.</li>
+<li>Модель сервиса: <a href="https://www.buchkatalog.de/aboutUs" target="_blank" rel="noopener">Über Buchkatalog</a>.</li>
+<li>Договорная модель: <a href="https://www.buchkatalog.de/termsAndCondition" target="_blank" rel="noopener">AGB</a>.</li>
+</ul>
+<h3 id="de-large-h16">Подтверждённые элементы</h3>
+<p><strong>WEB + UI.</strong> Главная содержит отдельные карусели детско-юношеских книг, детских познавательных и иллюстрированных книг, поиск книжного магазина и вход в поиск естественным языком. Работа самого рекомендательного AI-сервиса не тестировалась.</p>
+<p><strong>Категория:</strong> подтверждены заголовки о детско-юношеских книгах, возрастных группах, жанрах и бесплатном заказе; есть внутренние ссылки. Видны кнопки Filter и цена. Во время первоначальной загрузки UI показывал <code>Preis NaN - NaN</code>; позднее подпись стала обычной <code>Preis</code>. Корректность диапазона и отфильтрованной выдачи не подтверждена. Не приписываем странице полноценный возрастной или языковой фасет лишь на основании текста.</p>
+<p><strong>UI, товар.</strong> Карточка детской книги из карусели реально загрузилась; есть H1, ценовой блок, кнопка In den Warenkorb и Details с ISBN 9783401723280. Подробный анализ отзывов, серии и товарных рекомендаций этой карточки не завершён.</p>
+<p><strong>WEB, доставка.</strong> Страница описывает DHL домой за 1–3 рабочих дня и получение в выбранном магазине. Бесплатность доставки по Германии подтверждается главной и описанием сервиса; условия конкретного локального партнёра нельзя переносить с чужого поддомена.</p>
+<p><strong>Договорная модель:</strong> в Versandvariante продавец — Kolibri 360 GmbH; при Abholvariante договор заключается с книжным магазином. Это существенное отличие от единого продавца во всех сценариях.</p>
+<p><strong>Отличие / интерпретация:</strong> сравнивать как книжный портал и инфраструктуру местного получения. Загрузка UI показывает, почему одного статического извлечения недостаточно для выводов о качестве каталога.</p>
+<h2 id="de-large-h17">6. buch7</h2>
+<h3 id="de-large-h18">Первичные URL</h3>
+<ul>
+<li>Категория: <a href="https://www.buch7.de/warengruppe/kinder-und-jugend" target="_blank" rel="noopener">Kinder und Jugend</a>.</li>
+<li>Товар: <a href="https://www.buch7.de/produkt/die-grueffelo-oma-axel-scheffler/1064068865?ean=9783407790699" target="_blank" rel="noopener">Die Grüffelo-Oma</a>.</li>
+<li>Доставка: <a href="https://www.buch7.de/seite/lieferbedingungen-details" target="_blank" rel="noopener">Lieferbedingungen</a>.</li>
+<li>Позиционирование: <a href="https://www.buch7.de/seite/das-buch7-prinzip" target="_blank" rel="noopener">das buch7-Prinzip</a>.</li>
+</ul>
+<h3 id="de-large-h19">Подтверждённые элементы</h3>
+<p><strong>WEB, каталог.</strong> Подтверждены поля цены и доступности, категории/типы носителя, дата выхода и язык. В типах книги есть, например, твёрдый переплёт, Taschenbuch, картонная книга и Softcover. В главном меню детский раздел разделён на иллюстрированные и книги для чтения вслух, первое чтение, 6–9 лет, от 10, подростковые от 14 и познавательные. Работоспособность всех сочетаний фильтров не тестировалась.</p>
+<p><strong>Контент:</strong> подтверждены тематические рекомендации команды, рецензии и блоки социальных проектов на сайте. Длинный самостоятельный SEO-текст именно категории Kinder und Jugend не подтверждён.</p>
+<p><strong>UI, товар.</strong> H1 и подзаголовок, изображение и разворот, описание, авторы и переводчик, язык, переплёт, издатель, цена 16 евро, наличие, расчёт даты получения, ISBN 9783407790699, страницы, дата выхода и данные производителя. Есть отдельный расчёт суммы пожертвования от покупки и вход в тематическую подборку команды.</p>
+<p><strong>WEB, доставка.</strong> Германия — бесплатно; страница отдельно описывает Швейцарию и ограничение прочих зарубежных направлений. Международную доставку во все страны заявлять нельзя.</p>
+<p><strong>Отличие / интерпретация:</strong> социальная составляющая встроена в саму карточку. Сайт заявляет передачу 75% прибыли на проекты — это заявление магазина, не независимый финансовый аудит и не 75% выручки.</p>
+<h2 id="de-large-h20">7. Lehmanns</h2>
+<h3 id="de-large-h21">Первичные URL</h3>
+<ul>
+<li>Категория: <a href="https://www.lehmanns.de/fachgebiet/25-kinder-jugendbuch" target="_blank" rel="noopener">Kinderbuch / Jugendbuch</a>.</li>
+<li>Подкатегория: <a href="https://www.lehmanns.de/fachgebiet/25-kinder-jugendbuch/60-kinderbuecher-bis-11-jahre" target="_blank" rel="noopener">Kinderbücher bis 11 Jahre</a>.</li>
+<li>Подкатегория: <a href="https://www.lehmanns.de/fachgebiet/25-kinder-jugendbuch/10-bilderbuecher" target="_blank" rel="noopener">Bilderbücher</a>.</li>
+<li>Проверенный доступный товар: <a href="https://www.lehmanns.de/shop/kinderbuch-jugenbuch/52956204-9783968430140-der-gluecksverkaeufer" target="_blank" rel="noopener">Der Glücksverkäufer</a>.</li>
+<li>Доставка: <a href="https://www.lehmanns.de/page/versandkosten" target="_blank" rel="noopener">Versandkosteninformationen</a>.</li>
+<li>Принадлежность к группе: <a href="https://unternehmen.thalia.de/geschaeftsfelder/lehmanns-media/" target="_blank" rel="noopener">Thalia о Lehmanns Media</a>.</li>
+</ul>
+<h3 id="de-large-h22">Подтверждённые элементы</h3>
+<p><strong>UI.</strong> Главная, категория, товар и доставка работают на lehmanns.de. Первоначальная ошибка WEB 403 не означает закрытия или редиректа магазина.</p>
+<p><strong>Категория:</strong> иллюстрированные книги, биографии, дошкольное/первое чтение, стихи и песни, подростковые от 12, детские до 11, познавательные, игры/обучение, чтение вслух/сказки. В блоке уточнения поиска — цена, язык, год и Medienart; отдельно сортировка по релевантности, число товаров на странице и представление. Наличие отдельных узких возрастных фасетов не подтверждено.</p>
+<p><strong>UI, товар.</strong> Der Glücksverkäufer: автор Davide Calì, ISBN 9783968430140, кнопка покупки, статус доступности на складе, бесплатность доставки по Германии, вкладка Produkt-Details, описание/цитаты о книге и тематические переходы. Первоначально найденная старая карточка Inspektor Schnüffel не использована как единственное доказательство действующей продажи.</p>
+<p><strong>Контент:</strong> название категории и семантическая таксономия подтверждены. Длинный детский SEO-текст и FAQ не подтверждены. Главная ориентирована на Fachliteratur, образование и профессию; детский каталог находится внутри более широкого книжного предложения.</p>
+<p><strong>UI, доставка.</strong> Все книги по Германии — бесплатно; для других товаров доставка указывается у артикула. Не переносить тарифы из сторонних пересказов AGB.</p>
+<p><strong>Отличие / интерпретация:</strong> сильнее выражена библиографическая и предметная навигация. Это действующая дополнительная витрина Thalia, не независимая группа.</p>
+<h2 id="de-large-h23">8. Kulturkaufhaus Dussmann</h2>
+<h3 id="de-large-h24">Первичные URL</h3>
+<ul>
+<li>Категория: <a href="https://www.kulturkaufhaus.de/de/buecher/kinderbuecher" target="_blank" rel="noopener">Kinderbücher</a>.</li>
+<li>Подкатегория: <a href="https://www.kulturkaufhaus.de/de/buecher/kinderbuecher/bilderbuecher" target="_blank" rel="noopener">Bilderbücher</a>.</li>
+<li>Товар: <a href="https://www.kulturkaufhaus.de/de/detail/ISBN-9783407790699/Scheffler-Axel/Die-Gr%C3%BCffelo-Oma" target="_blank" rel="noopener">Die Grüffelo-Oma</a>.</li>
+<li>Доставка: <a href="https://www.kulturkaufhaus.de/de/service/versand" target="_blank" rel="noopener">Lieferbestimmungen</a>.</li>
+</ul>
+<h3 id="de-large-h25">Подтверждённые элементы</h3>
+<p><strong>UI, категория.</strong> После выбора необходимых cookies загрузились новинки, номинанты Deutscher Jugendliteraturpreis 2026, рекомендации сотрудников, магазинные бестселлеры и рекомендации покупателей. Есть переходы в иллюстрированные книги и первое чтение, а также управление сортировкой. Именованные фасеты возраста, цены, языка и доступности в проверенной UI-странице не подтверждены.</p>
+<p><strong>Тексты и навигация:</strong> нижний текстовый блок о детской литературе, классике и сказках, возрастном подборе, тематических книгах, чтении вслух и новинках, со ссылками на разделы. Не следует принимать все заявления магазина о популярности жанров за измеренные данные спроса.</p>
+<p><strong>UI, товар.</strong> Цена 16 евро, кнопка покупки, раздельные статусы готовности к отправке и получения через 1–2 рабочих дня. Есть описание, библиографические Details с ISBN/GTIN 9783407790699, отзывы, похожие товары, авторские блоки и связанные события — в частности, мероприятия вокруг Grüffelo.</p>
+<p><strong>WEB, доставка.</strong> Германия: корзины с книгой, eBook или eBundle, а также прочие заказы от 30 евро — бесплатно; прочие ниже порога — 3,95 евро. Указаны DHL/Deutsche Post и бесплатное получение в берлинском магазине. Формулировка с eBook приведена как условие сайта, а не как утверждение о физической доставке цифрового файла.</p>
+<p><strong>Отличие / интерпретация:</strong> заметная связь товарного каталога с рекомендациями конкретных сотрудников и культурными событиями. Это полезный образец редакционной дифференциации.</p>
+<h2 id="de-large-h26">9. Buchhandlung Graff</h2>
+<h3 id="de-large-h27">Первичные URL</h3>
+<ul>
+<li>Сайт книжного магазина: <a href="https://www.graff.de/" target="_blank" rel="noopener">Graff</a>.</li>
+<li>Рабочая детская витрина: <a href="https://graff.buchhandlung.de/shop/magazine/9/kinderbuecher.html" target="_blank" rel="noopener">Kinderbücher</a>.</li>
+<li>Товар: <a href="https://graff.buchhandlung.de/shop/article/57456600/axel_scheffler_julia_donaldson_die_grueffelo_oma.html" target="_blank" rel="noopener">Die Grüffelo-Oma</a>.</li>
+<li>Доставка: <a href="https://graff.buchhandlung.de/shop/magazine/130029/versandkosten.html" target="_blank" rel="noopener">Versandkosten</a>.</li>
+</ul>
+<h3 id="de-large-h28">Подтверждённые элементы</h3>
+<p><strong>UI, категория.</strong> H1 Kinderbücher; переходы по возрасту и навыку чтения, иллюстрированные книги, первое чтение, тематические миры, герои и интерактивные книги. Есть новинки, советы по книгам, осенние рекомендации, разнообразие/толерантность и Boys &amp; Books. Представлены языковые входы, включая русский и украинский, а также темы климата, утраты и войны.</p>
+<p><strong>Фильтры:</strong> перечисленные возраст, язык и темы на этой странице подтверждены как ссылки и разделы. Отдельный фасетный интерфейс товарной выдачи не проверен.</p>
+<p><strong>Тексты и навигация:</strong> возраст и выбор книги, значение чтения, тематические рекомендации и FAQ о возрасте, чтении вслух, сериях и пользе чтения. Проверка Pustet в ходе работы показала совпадающие заголовки и большие текстовые блоки: не считать этот контент доказанно уникальной редакционной разработкой Graff.</p>
+<p><strong>UI, товар.</strong> Возраст от 4 лет, описание, вкладки Portrait, Produktdetails и Bewertungen; цена 16 евро, немедленная доступность и сообщение об экспресс-получении в книжном магазине. Есть список желаний и другие книги авторов.</p>
+<p><strong>UI, доставка.</strong> Книжные/соответствующие смешанные заказы бесплатны от 25 евро; прочие — 3,50 евро, ориентир доставки 2–4 рабочих дня. Это отличается от безусловно бесплатной отправки печатной книги у ряда других витрин.</p>
+<p><strong>Платформа / отличие:</strong> в футере указан Libri как сервис-партнёр. Ценность для сравнения — сочетание локального магазина с развитой контентной посадочной, но общий шаблон необходимо учитывать.</p>
+<h2 id="de-large-h29">10. Rupprecht — замена Osiander</h2>
+<h3 id="de-large-h30">Первичные URL</h3>
+<ul>
+<li>Магазин: <a href="https://www.rupprecht.de/shop/" target="_blank" rel="noopener">Rupprecht</a>.</li>
+<li>Проверенная детская категория: <a href="https://www.rupprecht.de/shop/magazine/8329/kinderbuecher.html" target="_blank" rel="noopener">Kinderbücher</a>.</li>
+<li>Товар: <a href="https://www.rupprecht.de/shop/article/13826638/rick_riordan_percy_jackson_01_diebe_im_olymp.html" target="_blank" rel="noopener">Percy Jackson 01. Diebe im Olymp</a>.</li>
+<li>Доставка: <a href="https://www.rupprecht.de/shop/magazine/130029/versandkosten.html" target="_blank" rel="noopener">Versandkosten</a>.</li>
+</ul>
+<h3 id="de-large-h31">Подтверждённые элементы</h3>
+<p><strong>UI.</strong> Поиском первоначально найден адрес <code>/shop/magazine/8902</code>; в браузере он привёл на <code>/shop/magazine/8329/kinderbuecher.html</code>. Итоговый адрес подтверждён H1 и содержимым страницы. Корневая нормализация <code>/</code> → <code>/shop/</code> — HTTP 301 внутри того же магазина.</p>
+<p><strong>Категория:</strong> Bilderbuch, Geschichten &amp; Lieder, Märchenhaftes, Romane für Kinder, Kindersachbücher, Tierthemen и Nach Altersgruppe. В возрастной навигации видны первые читатели, от 8, 10, 12 и 14 лет. Показан товарный список с ценами и кнопками корзины.</p>
+<p><strong>Фильтры:</strong> отдельные именованные фасеты не подтверждены; возрастные ссылки нельзя выдавать за проверенный фильтр. Посадочная по наполнению отличается от развёрнутой magazine-страницы Graff: в проверенном представлении основной акцент — категории и товары.</p>
+<p><strong>Тексты и навигация:</strong> H1 Kinderbücher и блок Alle Kategorien auf einen Blick подтверждены. Длинный уникальный SEO-текст, детский FAQ и авторские рекомендации на этой странице не подтверждены.</p>
+<p><strong>UI, товар.</strong> Загружена карточка Percy Jackson 01. Diebe im Olymp, автор Rick Riordan, формат Taschenbuch, цена 11 евро и кнопка покупки. Проверка подробных вкладок и ISBN не завершена; их наличие не утверждается.</p>
+<p><strong>UI, доставка.</strong> Заказы с печатной книгой или аудиокнигой в Германии бесплатны. Для иных заказов указано 3,50 евро; у календарей и hardware свои пороги. Заявленный срок — примерно 2–4 рабочих дня.</p>
+<p><strong>Платформа / отличие:</strong> в футере указан сервис-партнёр Libri и оператор Buchhandlung Rupprecht GmbH. Общая сервисная среда не отменяет различий коммерческих условий: например, порог для книжной доставки отличается от Graff.</p></section><section id="de-niche"><h1 id="de-niche-h1">Германия специализированные детские книжные магазины</h1>
+<h2 id="de-niche-h2">11. kinderbuch.eu</h2>
+<p><strong>Тип и соответствие.</strong> Специализированный интернет-магазин детских книг разных издательств, с акцентом на остатки и Mängelexemplare. Это не маркетплейс. Детский ассортимент выделен по возрасту, теме и занятиям; есть подростковый раздел. В AGB указан единый продавец BuchVertrieb Blank GmbH.</p>
+<p><strong>Рабочие первичные URL:</strong></p>
+<ul>
+<li><a href="https://www.kinderbuch.eu/buecher-nach-alter" target="_blank" rel="noopener">Каталог по возрасту</a></li>
+<li><a href="https://www.kinderbuch.eu/Mein-liebstes-Pustebuch-Ich-geh-mit-meiner-Laterne-Maengelexemplar/9783845865829M" target="_blank" rel="noopener">Карточка: Mein liebstes Pustebuch – Ich geh mit meiner Laterne, Mängelexemplar</a></li>
+<li><a href="https://www.kinderbuch.eu/versand-und-zahlungsbedingungen" target="_blank" rel="noopener">Доставка и оплата</a></li>
+<li><a href="https://www.kinderbuch.eu/faq-kinderbuecher" target="_blank" rel="noopener">FAQ</a></li>
+<li><a href="https://www.kinderbuch.eu/allgemeine-geschaeftsbedingungen" target="_blank" rel="noopener">AGB / продавец</a></li>
+</ul>
+<p><strong>Что подтверждено.</strong> На карточке: цена 5,55 €, собственная кнопка корзины, доступность и срок 3–5 рабочих дней. В таблице характеристик — издатель, автор/иллюстратор, язык, дата издания, размеры, количество страниц и возраст. Для примера указаны 18 месяцев+, Pappbilderbuch, 12 страниц, 19,5 × 19,5 см. Состояние Mängelexemplar объяснено рядом с товаром. <a href="https://www.kinderbuch.eu/Mein-liebstes-Pustebuch-Ich-geh-mit-meiner-Laterne-Maengelexemplar/9783845865829M" target="_blank" rel="noopener">Источник: карточка</a>.</p>
+<div class="table-wrap"><table><thead><tr><th>Признак</th><th>Первичное наблюдение</th></tr></thead><tbody>
+<tr><td>Возраст</td><td>Разделы от младенцев до подростков; в карточке отдельная Altersempfehlung</td></tr>
+<tr><td>Серия</td><td>На главной/товарных описаниях встречаются серии; отдельный глобальный фильтр серий в этой проверке не подтверждён</td></tr>
+<tr><td>Формат</td><td>Artikelart, размеры, страницы; у примера картонная книга</td></tr>
+<tr><td>Чтение</td><td>Раздел Erstleser 6–8; пример — интерактивное совместное рассматривание, а не самостоятельное чтение</td></tr>
+<tr><td>Превью</td><td>Есть галерея; отдельная полная Leseprobe для выбранного SKU не подтверждена</td></tr>
+<tr><td>Отзывы</td><td>Блок присутствует, у примера 0 отзывов; магазинские Trusted Shops отделены от товарных</td></tr>
+</tbody></table></div>
+<p>Источник навигации — <a href="https://www.kinderbuch.eu/buecher-nach-alter" target="_blank" rel="noopener">каталог</a>; источник товарных блоков — <a href="https://www.kinderbuch.eu/Mein-liebstes-Pustebuch-Ich-geh-mit-meiner-Laterne-Maengelexemplar/9783845865829M" target="_blank" rel="noopener">карточка</a>.</p>
+<p><strong>Доставка.</strong> Германия явно указана; ниже 25 € — 4,99 €. Бесплатный порог и его пограничная формулировка — см. сводную таблицу. Доступны PayPal, карты, варианты оплаты по счёту, предоплата, Apple Pay и Google Pay. <a href="https://www.kinderbuch.eu/versand-und-zahlungsbedingungen" target="_blank" rel="noopener">Условия</a>.</p>
+<p><strong>Ограничение проверки.</strong> Checkout и оплаченная доставка не тестировались. Скидки/заявления магазина не являются данными о поисковом спросе.</p>
+<h2 id="de-niche-h3">12. Kibula</h2>
+<p><strong>Тип и соответствие.</strong> Нишевой мультибрендовый детский книжный интернет-магазин. В каталоге товары разных издательств; поле Anbieter на карточке называет издательский бренд и само по себе не означает модель маркетплейса. Возрастная навигация: 0–2, 3–5, 6–8, 9–12. Покрытие 13–16 не подтверждено.</p>
+<p><strong>Первичные URL:</strong></p>
+<ul>
+<li><a href="https://kibula.de/collections/all" target="_blank" rel="noopener">Каталог</a></li>
+<li><a href="https://kibula.de/products/mein-erstes-liederbuch" target="_blank" rel="noopener">Карточка: Mein erstes Liederbuch</a></li>
+<li><a href="https://kibula.de/policies/shipping-policy" target="_blank" rel="noopener">Доставка</a></li>
+<li><a href="https://kibula.de/products/das-grosse-goldene-disney-buch" target="_blank" rel="noopener">Дополнительная карточка с отзывом: Das große goldene Disney-Buch</a></li>
+<li><a href="https://kibula.de/products/mein-erstes-liederbuch.js" target="_blank" rel="noopener">Публичные данные выбранного товара</a></li>
+</ul>
+<p><strong>Подтверждение прямой продажи.</strong> Товар Mein erstes Liederbuch за 20 € успешно добавлен в отдельную временную корзину через собственный /cart/add.js. /cart.js вернул один товар и 2000 евроцентов; затем корзина очищена. Публичные данные показывали available=true. Текстовая выгрузка одновременно содержала «Nicht verfügbar»: этот фрагмент не принят за доказательство отсутствия товара, поскольку реальное добавление удалось. Это проверка корзины, не покупки.</p>
+<div class="table-wrap"><table><thead><tr><th>Признак</th><th>Первичное наблюдение</th></tr></thead><tbody>
+<tr><td>Возраст</td><td>Четыре возрастные группы в навигации; пример описан для детей от 24 месяцев</td></tr>
+<tr><td>Серия</td><td>Есть брендовые/серийные названия в каталоге; отдельный фильтр серий не подтверждён</td></tr>
+<tr><td>Формат</td><td>В каталоге фильтр Einbandart: Hardcover, Pappbuch, Softcover, Spiralbindung и др.</td></tr>
+<tr><td>Чтение</td><td>Разделы Erstleser, Zweitleser, Vorlesebücher, Wissen, Wimmelbücher</td></tr>
+<tr><td>Превью</td><td>Галерея товарных изображений есть; отдельный reader/PDF выбранного товара не подтверждён</td></tr>
+<tr><td>Отзывы</td><td>На Disney-карточке подтверждён Customer Reviews с 1 отзывом; не переносить на все товары</td></tr>
+</tbody></table></div>
+<p>Первичные страницы: <a href="https://kibula.de/collections/all" target="_blank" rel="noopener">каталог</a>, <a href="https://kibula.de/products/mein-erstes-liederbuch" target="_blank" rel="noopener">товар</a>, <a href="https://kibula.de/products/das-grosse-goldene-disney-buch" target="_blank" rel="noopener">отзыв</a>.</p>
+<p><strong>Доставка.</strong> Только Германия; 3,90 € за заказ, бесплатно от 50 €, минимум заказа 20 €; заявленный срок 3–5 дней при стандартных условиях. <a href="https://kibula.de/policies/shipping-policy" target="_blank" rel="noopener">Shipping-policy</a>.</p>
+<p><strong>Ограничение.</strong> На других карточках текст наличия и листинг расходились. Наличие проверено только для указанного товара. Минимум заказа подтверждён документом, блокировка меньшей корзины не тестировалась.</p></section><section id="de-retail"><h1 id="de-retail-h1">Дополнительные книжные сети и магазины Германии</h1>
+<details class="local-toc"><summary>Разделы этой части</summary><nav><a href="#de-retail-h2">Heymann</a><a href="#de-retail-h3">Rombach</a><a href="#de-retail-h4">Schmitt &amp; Hahn</a><a href="#de-retail-h5">Bücher Wenner</a><a href="#de-retail-h6">schmitz junior</a><a href="#de-retail-h7">Buchhandlung Godolt</a><a href="#de-retail-h8">Reuffel</a><a href="#de-retail-h9">Pustet</a></nav></details>
+<p>Эта группа дополняет крупные сети. Отобраны именно книжные витрины; универсальные ритейлеры и издательские каталоги не заменяют основную выборку. Наличие сайта и опубликованных условий не равно проверенному исполнению заказа: тестовые покупки не выполнялись. Условия доставки указаны как наблюдение на 20 октября 2026 и могут меняться.</p>
+<h2 id="de-retail-h2">Heymann</h2>
+<p><strong>Тип:</strong> книжная сеть; детский раздел с редакционными и товарными блоками. <a href="https://www.heymann-buecher.de/shop/magazine/9/kinderbuecher.html" target="_blank" rel="noopener">Детские книги</a>.</p>
+<p><strong>Наблюдение:</strong> в поисково доступном содержании раздела есть книги по возрасту/этапу чтения, блок первых читателей, сезонные рекомендации, популярные герои и подборка Boys &amp; Books. Прямой текстовый просмотр страницы в этой проверке отдавал сообщение о необходимости JavaScript, поэтому визуальные состояния фильтров и checkout не подтверждены.</p>
+<p><strong>Для нашего сайта:</strong> построить не только бесконечный список, но и понятные входы «читать вместе», «начать читать», «по возрасту». Источник редакционной рекомендации показывать открыто. При похожих страницах разных магазинов не считать одинаковые блоки независимым доказательством их эффективности.</p>
+<p><strong>Доставка:</strong> тариф и актуальная граница бесплатной доставки в этой проверке не зафиксированы; не переносить условия Rupprecht/другого магазина только из-за похожей платформы.</p>
+<h2 id="de-retail-h3">Rombach</h2>
+<p><strong>Тип:</strong> книжный магазин/сеть с онлайн-витриной. <a href="https://www.rombach.de/shop/" target="_blank" rel="noopener">Магазин</a>, <a href="https://www.rombach.de/shop/magazine/1/buecher.html" target="_blank" rel="noopener">книжный каталог</a>.</p>
+<p><strong>Наблюдение:</strong> отдельные категории Kinderbücher и Jugendbücher, BookTok, читательские любимые книги, новинки, предзаказы, авторские и издательские миры. На главной есть услуги для школ, детских садов, студентов и B2B; рекламируется заказ в магазин и доставка по Германии при выполнении условий.</p>
+<p><strong>Для нашего сайта:</strong> подростковый раздел отделить от малышей; услуги учреждениям выносить отдельно от обычной покупки; предзаказ не смешивать с физическим наличием.</p>
+<p><strong>Доставка:</strong> страница магазина заявляет «Buch dabei portofrei ab €25 deutschlandweit»; остальные исключения и итог проверять при заказе. Это конкретное наблюдение витрины, не рекомендуемый автоматически порог проекта.</p>
+<h2 id="de-retail-h4">Schmitt &amp; Hahn</h2>
+<p><strong>Тип:</strong> книжная сеть, включая вокзальные и городские магазины. <a href="https://www.schmitt-hahn.de/shop/" target="_blank" rel="noopener">Онлайн-магазин</a>.</p>
+<p><strong>Наблюдение:</strong> сезонные и тематические подборки, независимые издательства, BookTok, списки бестселлеров, подарочный сертификат, мероприятия. В плитках виден формат и состояние поставки — например, немедленная доступность или 1–2 недели.</p>
+<p><strong>Для нашего сайта:</strong> сроки должны быть на уровне товара; тему/сезон связывать с каталогом и реальным наличием; подарочные сертификаты — дополнительный продукт после готовности учёта.</p>
+<p><strong>Доставка:</strong> магазин заявляет доставку книг и аудиокниг без почтовых расходов и получение в книжном магазине. Тонкие условия/исключения отдельно не воспроизводятся.</p>
+<h2 id="de-retail-h5">Bücher Wenner</h2>
+<p><strong>Тип:</strong> самостоятельная книжная торговля с собственным сайтом и партнёрской витриной. <a href="https://www.buecher-wenner.de/" target="_blank" rel="noopener">Сайт</a>, <a href="https://www.buecher-wenner.de/agb" target="_blank" rel="noopener">условия</a>, <a href="https://buecher-wenner.buchhandlung.de/shop/magazine/130050/versand.html" target="_blank" rel="noopener">партнёрский сервис</a>.</p>
+<p><strong>Наблюдение:</strong> условия прямо различают собственный запас и заказ у поставщика; объясняют время отправки, tracking и отсутствие обычного разделения заказа. У основного сайта и партнёрской витрины условия/контрагент могут различаться.</p>
+<p><strong>Для нашего сайта:</strong> различать «есть на складе магазина», «есть у поставщика» и «предзаказ»; указывать отправку и срок перевозки раздельно. Не скрывать другого контрагента, если заказ фактически оформляется через партнёра.</p>
+<p><strong>Доставка:</strong> собственные AGB описывают доставку по Германии, обычно бесплатную для книг, и отсутствие отправки за рубеж; точный вариант сервиса зависит от витрины. Это важнее обобщённой фразы «доставка везде».</p>
+<h2 id="de-retail-h6">schmitz junior</h2>
+<p><strong>Тип:</strong> детская книжная торговля с редакционным сайтом и связанным онлайн-магазином. <a href="https://www.schmitzjunior.de/" target="_blank" rel="noopener">Сайт</a>, <a href="https://schmitz-junior.buchkatalog.de/" target="_blank" rel="noopener">связанная витрина</a>.</p>
+<p><strong>Наблюдение:</strong> советы для младших/старших читателей, познавательные книги, журнал рекомендаций, встречи с авторами, программы для школ и детских садов. Редакторские записи дают возраст и ссылку заказа. Покупка переносится на партнёрскую витрину, поэтому это один бренд, а не два конкурента.</p>
+<p><strong>Для нашего сайта:</strong> авторская рекомендация может быть главным отличием от массового каталога; у статьи сразу должны быть возраст, конкретное издание и путь к покупке. Если сайт и магазин разделены, сохранять понятный переход и сквозное измерение.</p>
+<p><strong>Доставка:</strong> опубликованное обновление от 1 июля 2026: бесплатная отправка от €30, ниже — €3; самовывоз бесплатный. <a href="https://www.schmitzjunior.de/" target="_blank" rel="noopener">Обновление на сайте</a>.</p>
+<h2 id="de-retail-h7">Buchhandlung Godolt</h2>
+<p><strong>Тип:</strong> самостоятельный книжный магазин с детской специализацией и web shop. <a href="https://www.buchhandlung-godolt.de/" target="_blank" rel="noopener">Сайт и заказ</a>.</p>
+<p><strong>Наблюдение:</strong> отобранный ассортимент для взрослых и детей, личная консультация, заказ доступных книг, возможность выбора получения в магазине или отправки. На сайте заявлена награда Berliner Kinderbuchhandlung des Jahres; не делать из неё национальный рейтинг продаж.</p>
+<p><strong>Для нашего сайта:</strong> объяснить ценность отбора и личности редактора/книготорговца; предусмотреть помощь в выборе как конкретный сервис, если есть сотрудник для ответов.</p>
+<p><strong>Ограничение:</strong> конкретная PDP и пошаговое оформление на связанной витрине не исследованы; тариф доставки в этой проверке не подтверждён. Основной сайт подтверждает возможность Versand.</p>
+<h2 id="de-retail-h8">Reuffel</h2>
+<p><strong>Тип:</strong> книжная сеть с интернет-магазином. <a href="https://www.reuffel.de/detail/ISBN-9783707426700/Brezina-Thomas/Tiger-Team---Der-kleine-Gruselladen" target="_blank" rel="noopener">Пример детской карточки</a>.</p>
+<p><strong>Наблюдение:</strong> библиографические поля, возраст, формат, цена, серия, автор/иллюстратор, описание; на части результатов виден остаток в конкретном филиале. Поисковые копии одного ISBN по разным путям содержат различающиеся цены/данные — это повод проверять актуальную карточку, а не брать число из старого сниппета.</p>
+<p><strong>Для нашего сайта:</strong> единая карточка конкретного ISBN, единый источник коммерческих данных и связь с филиальным/поставщицким остатком.</p>
+<p><strong>Доставка:</strong> <a href="https://www.reuffel.de/reuffel/juristisches/agb" target="_blank" rel="noopener">AGB Reuffel</a> подтверждают отправку по Германии: бесплатно от €30, ниже — €5,50; указаны и международные варианты. Главная при прямом чтении не загрузилась, checkout не проверен. Таймаут сам по себе не означает закрытие магазина.</p>
+<h2 id="de-retail-h9">Pustet</h2>
+<h3 id="de-retail-h10">Проверенные первичные URL</h3>
+<ul>
+<li><a href="https://www.pustet.de/shop/magazine/9/kinderbuecher.html" target="_blank" rel="noopener">Детская категория Kinderbücher</a> — UI: загрузились заголовок и содержимое детского раздела; WEB показывал JavaScript-заглушку.</li>
+<li><a href="https://www.pustet.de/shop/article/57456600/axel_scheffler_julia_donaldson_die_grueffelo_oma.html" target="_blank" rel="noopener">Товар Die Grüffelo-Oma</a> — UI: карточка открыта переходом из детской категории, подтверждены название и цена 16 евро.</li>
+<li><a href="https://www.pustet.de/shop/magazine/130029/versandkosten.html" target="_blank" rel="noopener">Versandkosten</a> — UI: прочитаны условия доставки, страница открыта через ссылку магазина.</li>
+</ul>
+<h3 id="de-retail-h11">Подтверждённые блоки и отличия</h3>
+<p><strong>UI, категория.</strong> Подтверждены возрастные/читательские входы, Bilderbücher, Erstes Lesen, Themenwelten, Held*innen der Kindheit, Interaktive Kinderbücher, Romane für Kinder, познавательные и международные детские книги. В основном содержимом видны новинки, Kinderbuch Tipps, Herbstliche Lesetipps, подборка о разнообразии и толерантности, Boys &amp; Books, языковые входы и тематические блоки о климате, утрате и войне.</p>
+<p><strong>Тексты и навигация:</strong> блоки Geschichten für jedes Alter entdecken, Passende Kinderbücher für jedes Alter, Warum Kinderbücher so wichtig sind и FAQ о выборе по возрасту, чтении вслух и сериях. Заголовки и значительные фрагменты текста совпадают с проверенной страницей Graff. Это наблюдение об общем контентном шаблоне; оно не доказывает общего владельца или уникальности редакционной работы. В футере указан оператор Friedrich Pustet GmbH &amp; Co. KG и сервис-партнёр Libri GmbH.</p>
+<p><strong>UI, доставка по Германии.</strong> Заказы с печатной книгой, аудиокнигой или соответствующим ценорегулируемым календарём бесплатны от 25 евро; для прочих заказов указано 3,50 евро, для hardware — отдельный порог 69 евро. Заявленный срок доставки домой — примерно 2–4 рабочих дня. Есть бесплатное экспресс-получение в книжном магазине при соблюдении срока заказа и наличии товара. По условиям книжной доставки Pustet похож на Graff и отличается от Rupprecht, где для заказа с книгой порог не указан.</p>
+<p><strong>Ограничения.</strong> Фасетные фильтры и их сочетания, подробные вкладки товара, индексация и разметка не проверены. Возрастные и языковые переходы подтверждены как навигация. Трафик, позиции и частотности неизвестны; совпадение контента само по себе не доказывает SEO-результативности. Главная в дополнительном HTTP-журнале: 301 с <code>/</code> на <code>/shop/</code>, затем 200 — внутренний переход активного магазина.</p></section><section id="ru-large"><h1 id="ru-large-h1">Россия книжные магазины и сети</h1>
+<details class="local-toc"><summary>Разделы этой части</summary><nav><a href="#ru-large-h2">1. Читай-город — основной список</a><a href="#ru-large-h6">2. Буквоед — основной список, проверка ограничена защитой сайта</a><a href="#ru-large-h10">3. Лабиринт — основной список</a><a href="#ru-large-h14">4. Book24 — основной список, проверка ограничена защитой сайта</a></nav></details>
+<h2 id="ru-large-h2">1. Читай-город — основной список</h2>
+<p>Тип: книжная сеть с интернет-магазином. Главная, детский подраздел, карточка и доставка прочитаны. Попытка открыть общий детский раздел вернула 403; для содержательного разбора использован доступный подраздел.</p>
+<h3 id="ru-large-h3">Проверенные URL и источники</h3>
+<ul>
+<li><a href="https://www.chitai-gorod.ru/" target="_blank" rel="noopener">Главная</a>.</li>
+<li><a href="https://www.chitai-gorod.ru/catalog/books/detskaya-poznavatelnaya-literatura-110100" target="_blank" rel="noopener">Детская категория: познавательная литература</a>.</li>
+<li><a href="https://www.chitai-gorod.ru/catalog/books/razvitie-rebenka-110127" target="_blank" rel="noopener">Дополнительная категория: развивающие книги</a>.</li>
+<li><a href="https://www.chitai-gorod.ru/product/gagloev-e-kotektiv-smesnoj-kosacij-detektiv-dom-s-privideniami-3129903" target="_blank" rel="noopener">Карточка: «Котектив. Смешной кошачий детектив. Дом с привидениями»</a>.</li>
+<li><a href="https://www.chitai-gorod.ru/delivery" target="_blank" rel="noopener">Доставка и оплата</a>.</li>
+</ul>
+<p>Карточка художественной книги служит отдельным образцом товарной страницы; она не является товаром из выбранного познавательного подраздела.</p>
+<h3 id="ru-large-h4">Фактически найдено</h3>
+<p><strong>Главная:</strong> поиск, новинки, хиты продаж, эксклюзивные предложения, предзаказ, акции, программа лояльности, блог, ссылка на доставку. В товарных плитках видны автор, переплёт, цены, скидка, число оценок и действие покупки. Источник: <a href="https://www.chitai-gorod.ru/" target="_blank" rel="noopener">главная</a>.</p>
+<p><strong>Детский каталог:</strong> ссылки на энциклопедии для дошкольников, естественные и гуманитарные науки, технику, развитие ребёнка, художественную литературу; счётчик товаров. Ниже выдачи есть информационные заголовки и ссылки на вопросы о природе, музыке, динозаврах, истории и других темах. В развивающем разделе есть переходы «0–3», «3–4», «5–7», подготовка к школе, чтение и речь, математика, письмо. Это подтверждённая категорийная навигация; состав интерактивных фасетов в текстовой выгрузке не подтверждён. Источники: <a href="https://www.chitai-gorod.ru/catalog/books/detskaya-poznavatelnaya-literatura-110100" target="_blank" rel="noopener">познавательная литература</a>, <a href="https://www.chitai-gorod.ru/catalog/books/razvitie-rebenka-110127" target="_blank" rel="noopener">развивающие книги</a>.</p>
+<p><strong>Карточка:</strong> описание и характеристики, отзывы, ISBN 978-5-353-11626-4, маркировка 6+, иллюстратор, число страниц, размеры, издательство; отдельно цикл, номер книги в цикле и ссылки на следующие части. Полезный образец продолжения чтения по серии. Источник: <a href="https://www.chitai-gorod.ru/product/gagloev-e-kotektiv-smesnoj-kosacij-detektiv-dom-s-privideniami-3129903" target="_blank" rel="noopener">«Котектив»</a>.</p>
+<p><strong>Доставка:</strong> справка объясняет отправку интернет-заказов с московского склада, включая заказы в магазины сети. Есть выбор населённого пункта, сведения об оплате на сайте и при получении; доступные способы зависят от службы. В прочитанном тексте блок способов доставки не раскрыл конкретные тарифы. Карточка упоминает самовывоз, курьера и почту, но это не расчёт конкретной корзины. Источники: <a href="https://www.chitai-gorod.ru/delivery" target="_blank" rel="noopener">доставка</a>, <a href="https://www.chitai-gorod.ru/product/gagloev-e-kotektiv-smesnoj-kosacij-detektiv-dom-s-privideniami-3129903" target="_blank" rel="noopener">карточка</a>.</p>
+<h3 id="ru-large-h5">Вывод для UX/SEO в Германии — интерпретация</h3>
+<p>Полезны отдельные входы по возрасту и навыку, навигация по циклу и сочетание товарной выдачи с ответами на вопросы родителей. Для своего проекта стоит показывать ожидаемый уровень самостоятельного чтения отдельно от формальной маркировки. Счётчики товаров в разных прочитанных копиях менялись; их нельзя использовать как точное сравнение ассортимента. Не подтверждены тариф для Германии, бесплатная доставка для выбранного города, работа фасетов и техническая SEO-настройка.</p>
+<h2 id="ru-large-h6">2. Буквоед — основной список, проверка ограничена защитой сайта</h2>
+<p>Тип: книжная сеть и интернет-магазин. Прямое открытие главной, категории, карточки и справки ограничено 403/ошибками извлечения. Сведения ниже получены из поискового представления официальных страниц. Нельзя утверждать, что текущий интерфейс визуально осмотрен или checkout работает.</p>
+<h3 id="ru-large-h7">URL и первичные источники</h3>
+<ul>
+<li><a href="https://www.bookvoed.ru/" target="_blank" rel="noopener">Главная — попытка открытия, 403</a>.</li>
+<li><a href="https://www.bookvoed.ru/catalog/detskie-knigi-110090" target="_blank" rel="noopener">Категория: книги для детей и подростков</a>.</li>
+<li><a href="https://www.bookvoed.ru/catalog/detskaya-hudozhestvennaya-literatura-110091" target="_blank" rel="noopener">Подкатегория: художественная литература для детей</a>.</li>
+<li><a href="https://www.bookvoed.ru/product/gagloev-e-kotektiv-smesnoj-kosacij-detektiv-dom-s-privideniami-8753692" target="_blank" rel="noopener">Карточка: «Котектив. Дом с привидениями»</a>.</li>
+<li><a href="https://www.bookvoed.ru/help" target="_blank" rel="noopener">Помощь, включая способы доставки</a>.</li>
+<li><a href="https://www.bookvoed.ru/about" target="_blank" rel="noopener">О магазине</a>.</li>
+</ul>
+<h3 id="ru-large-h8">Фактически найдено в официальных индексируемых страницах</h3>
+<p><strong>Категория:</strong> сказки, фантастика и фэнтези, комиксы, внеклассное чтение, художественная и познавательная литература, энциклопедии, развивающие пособия, творчество, книги-игрушки, подростковые книги. Видны сортировка с новинками, пагинация, переплёт, цены и состояния «Купить»/«Предзаказ». Есть большой текстовый блок о видах детских книг. На странице заявлен диапазон от рождения до 16 лет. Источник: <a href="https://www.bookvoed.ru/catalog/detskie-knigi-110090" target="_blank" rel="noopener">детский раздел</a>.</p>
+<p><strong>Фильтры:</strong> справка прямо описывает фильтрацию результатов поиска по жанру, серии, издательству, цене, языку, году и переплёту. Это подтверждение текста справки, а не проверка всех этих фильтров именно в детской категории. Источник: <a href="https://www.bookvoed.ru/help" target="_blank" rel="noopener">помощь</a>.</p>
+<p><strong>Карточка:</strong> автор, маркировка 6+, отзывы, счётчик покупок, аннотация, серия, издательство, переплёт, страницы, год и тираж; цена, наличие, покупка, предложение получения в магазине. В прочитанной индексируемой копии было указано наличие в 60 магазинах и получение сегодня для Санкт-Петербурга. Эти значения локальны и могли измениться; они не подтверждены для другого города. Источник: <a href="https://www.bookvoed.ru/product/gagloev-e-kotektiv-smesnoj-kosacij-detektiv-dom-s-privideniami-8753692" target="_blank" rel="noopener">карточка</a>.</p>
+<p><strong>Доставка:</strong> справка описывает бесплатный самовывоз из магазинов Буквоед, Читай-город и Гоголь-моголь, партнёрские ПВЗ, курьера и Почту России. Тарифы партнёров и предварительные даты считаются при оформлении. Для магазинов указан срок хранения 7 дней. Оформление в справке предполагает обязательную регистрацию. Бронирование книги из розничного наличия отличается от интернет-заказа, в том числе ценой. Источник: <a href="https://www.bookvoed.ru/help" target="_blank" rel="noopener">помощь</a>.</p>
+<h3 id="ru-large-h9">Вывод для UX/SEO в Германии — интерпретация</h3>
+<p>Полезен показ локального наличия рядом с интернет-покупкой. Для немецкого проекта важно так же явно различать резерв в филиале и доставку со склада, особенно если различаются цена и срок. Категорийные тексты и ссылки дают идеи структуры, но не доказывают SEO-результат. Буквоед и Читай-город связаны одной сетью; это два интерфейсных референса, а не два независимых бизнес-эксперимента. Связь подтверждает <a href="https://www.bookvoed.ru/about" target="_blank" rel="noopener">официальная страница о Буквоеде</a>.</p>
+<h2 id="ru-large-h10">3. Лабиринт — основной список</h2>
+<p>Тип: книжный интернет-магазин. Прочитаны главная, детский раздел, карточка и специальная справка о доставке. Общая ссылка «Доставка и оплата» ведёт в помощь; для анализа использована конкретная статья.</p>
+<h3 id="ru-large-h11">Проверенные URL и источники</h3>
+<ul>
+<li><a href="https://www.labirint.ru/" target="_blank" rel="noopener">Главная</a>.</li>
+<li><a href="https://www.labirint.ru/genres/1850/" target="_blank" rel="noopener">Книги для детей</a>.</li>
+<li><a href="https://www.labirint.ru/books/1000764/" target="_blank" rel="noopener">Карточка: «Две кругосветки», Елена Ленковская</a>.</li>
+<li><a href="https://www.labirint.ru/help/?clause=140" target="_blank" rel="noopener">Все способы доставки</a>.</li>
+<li><a href="https://www.labirint.ru/help/?cardhelp=446" target="_blank" rel="noopener">Доставка по России и за рубеж: подробная статья</a>.</li>
+</ul>
+<h3 id="ru-large-h12">Фактически найдено</h3>
+<p><strong>Главная:</strong> редакционные рекомендации, акции и спецпроекты, школьные предложения, подборки; товарные блоки с ценой, рецензиями и фотографиями. Источник: <a href="https://www.labirint.ru/" target="_blank" rel="noopener">главная</a>.</p>
+<p><strong>Детский раздел:</strong> лучшие книги, бестселлеры жанра, тематические входы; наличие с состояниями «в наличии», «предзаказ», «ожидаются», «нет в продаже»; диапазон цены и выбор скидки; сортировки по новизне, продажам, рецензируемости, цене, размеру скидки и рейтингу. Есть подписка на новинки и рецензии жанра, поиск внутри раздела и сброс условий. Число найденных книг зависит от состояния выдачи; его не следует трактовать как весь детский ассортимент. Источник: <a href="https://www.labirint.ru/genres/1850/" target="_blank" rel="noopener">категория</a>.</p>
+<p><strong>Карточка:</strong> аннотация, автор и художник, издательство и серия, ISBN, язык, страницы, бумага, вес, размеры, переплёт, оформление и тип иллюстраций; отдельный блок причин покупки, цена со скидкой, акция, корзина, покупательские рецензии. В описании указан средний школьный возраст; не заменяем его самостоятельно точной возрастной рекомендацией. Источник: <a href="https://www.labirint.ru/books/1000764/" target="_blank" rel="noopener">«Две кругосветки»</a>.</p>
+<p><strong>Доставка:</strong> официальная статья перечисляет Л-Пост, Boxberry, 5Post, Почту России и DHL. Приведены ориентиры 2–25 дней для курьера и 2–20 дней для региональных пунктов Л-Пост после комплектации. Тариф и доступность зависят от города/корзины. Для Л-Пост указаны хранение 5 дней и продление на 3 дня. Названия служб фиксируют содержание справки, а не независимую проверку текущей сети перевозчиков. Источник: <a href="https://www.labirint.ru/help/?cardhelp=446" target="_blank" rel="noopener">статья о доставке</a>.</p>
+<h3 id="ru-large-h13">Вывод для UX/SEO в Германии — интерпретация</h3>
+<p>Сильный референс подробных характеристик издания: бумага, иллюстрации, габариты помогают выбрать детскую книгу дистанционно. Сортировка по рецензиям и подписка полезны постоянным покупателям. Большое число акций и режимов выбора потенциально усложняет первый визит — это гипотеза для теста, не измеренный результат. Старые локальные страницы ПВЗ с порогами бесплатной доставки нельзя распространять на всю Россию или Германию.</p>
+<h2 id="ru-large-h14">4. Book24 — основной список, проверка ограничена защитой сайта</h2>
+<p>Тип: книжный интернет-магазин. Официальная страница описывает его как магазин издательской группы Эксмо-АСТ, но он включён здесь как многoиздательский книжный ритейлер из уточнённого пользователем списка. Прямые запросы главной, доставки и выбранной карточки возвращали 403. Наблюдения основаны на индексируемых официальных страницах; успешная покупка не подтверждена.</p>
+<h3 id="ru-large-h15">URL и первичные источники</h3>
+<ul>
+<li><a href="https://book24.ru/" target="_blank" rel="noopener">Главная — прямое открытие ограничено</a>.</li>
+<li><a href="https://book24.ru/catalog/proza-dlya-detey-1165/" target="_blank" rel="noopener">Детская категория: художественная литература</a>.</li>
+<li><a href="https://book24.ru/catalog/pervye-knigi-malysha-razvitie-rebenka-1228/" target="_blank" rel="noopener">Дополнительная категория: книги для малышей</a>.</li>
+<li><a href="https://book24.ru/product/malen-kij-princ-ubilejnoe-izdanie-8734847/" target="_blank" rel="noopener">Карточка: «Маленький принц. Юбилейное издание»</a>.</li>
+<li><a href="https://book24.ru/delivery/" target="_blank" rel="noopener">Доставка</a>.</li>
+<li><a href="https://book24.ru/help/" target="_blank" rel="noopener">FAQ о заказе и доставке</a>.</li>
+<li><a href="https://book24.ru/o-nas/" target="_blank" rel="noopener">О магазине</a>.</li>
+</ul>
+<h3 id="ru-large-h16">Фактически найдено в официальных индексируемых страницах</h3>
+<p><strong>Структура:</strong> в художественной категории есть повести и рассказы, классика, современная проза, книги по фильмам, приключения, детективы, мистика, фантастика и фэнтези, школьная программа, хрестоматии и юмор. В разделе для малышей — азбуки, мир вокруг, формы, цвета, цифры, стихи, пазлы и книги для купания. Видны сортировка по популярности, товарные названия, авторы, покупка и предзаказ. Состав дополнительных фасетов не подтверждён. Источники: <a href="https://book24.ru/catalog/proza-dlya-detey-1165/" target="_blank" rel="noopener">художественная литература</a>, <a href="https://book24.ru/catalog/pervye-knigi-malysha-razvitie-rebenka-1228/" target="_blank" rel="noopener">книги для малышей</a>.</p>
+<p><strong>Карточка:</strong> артикул p8734847, оценки и отзывы, счётчик покупок, аннотация, серия, издательство Махаон, ISBN 978-5-389-28619-1, 120 страниц, год 2026, переплёт, формат, вес, подтверждение соответствия. В прочитанной копии были наличие, цена и добавление в корзину. Это подтверждение содержимого копии, а не актуального остатка. Источник: <a href="https://book24.ru/product/malen-kij-princ-ubilejnoe-izdanie-8734847/" target="_blank" rel="noopener">карточка</a>.</p>
+<p><strong>Доставка:</strong> страница предлагает выбрать населённый пункт; FAQ связывает расчёт со способом, городом, весом и габаритами корзины. Товар с удалённого склада может добавить 2–4 дня к отгрузке. Для партнёрских ПВЗ указан срок хранения 5–14 дней и невозможность продлить его. FAQ отдельно исключает доставку в Украину, поэтому рекламную формулировку о любой точке мира нельзя понимать буквально. Источники: <a href="https://book24.ru/delivery/" target="_blank" rel="noopener">доставка</a>, <a href="https://book24.ru/help/" target="_blank" rel="noopener">FAQ</a>.</p>
+<h3 id="ru-large-h17">Вывод для UX/SEO в Германии — интерпретация</h3>
+<p>Полезна подробная разбивка по формату и задаче: книги для купания, пазлы, азбуки. FAQ объясняет, почему часть способов получения исчезает из-за габаритов заказа. Для немецкого проекта такую причину стоит сообщать непосредственно при выборе доставки. Главная визуально не проверена; конкретные фильтры, актуальные пороги бесплатной доставки и работоспособность checkout неизвестны.</p></section><section id="ru-retail"><h1 id="ru-retail-h1">Ещё два российских книжных магазина</h1>
+<details class="local-toc"><summary>Разделы этой части</summary><nav><a href="#ru-retail-h2">Подписные издания</a><a href="#ru-retail-h3">Республика</a><a href="#ru-retail-h4">1. Книжный магазин «Москва» — moscowbooks.ru</a><a href="#ru-retail-h5">2. Библио-Глобус — biblio-globus.ru</a><a href="#ru-retail-h7">1. Пиотровский — подходит для основной подборки</a><a href="#ru-retail-h8">2. Порядок слов — подходит с оговоркой о подтверждении и оплате</a><a href="#ru-retail-h9">Почему исходные кандидаты не засчитаны</a></nav></details>
+<h2 id="ru-retail-h2">Подписные издания</h2>
+<p><strong>Тип:</strong> книжный магазин с онлайн-заказом, редакционной программой и мероприятиями. Не универсальный маркетплейс. <a href="https://www.podpisnie.ru/" target="_blank" rel="noopener">Главная</a>, <a href="https://www.podpisnie.ru/categories/knigi/detskie-knigi/" target="_blank" rel="noopener">детский раздел</a>, <a href="https://www.podpisnie.ru/books/gruffalo-12/" target="_blank" rel="noopener">пример карточки «Груффало»</a>.</p>
+<p><strong>Что наблюдалось:</strong> детская категория, возрастные и тематические комбинации, сортировки, отметки магазинных бестселлеров; у книги галерея, цена, количество в наличии, корзина, язык, переводчик, ISBN, формат, переплёт и страницы. На главной — редакционные материалы, отзывы/видеообзоры, новинки, предзаказы, события и магазины. Это сильный пример выбора через вкус и редакционную работу.</p>
+<p><strong>Для проекта в Германии:</strong> карточка должна отличать переводчика/издание/язык, поскольку одно произведение может продаваться в разных вариантах. Тематические подборки полезно связать с мнением редактора. Подборка и авторский текст должны вести к актуальным товарам, а не только рассказывать о бренде.</p>
+<p><strong>Доставка:</strong> наличие доставки по России подтверждено главной и товарными блоками; условия зависят от города и заказа. В поисковых копиях встречаются разные региональные/временные баннеры, поэтому единую действующую цену по ним не фиксируем. Проверка оплаченного заказа и доставки в Германию не выполнялась. Прямые открытия части страниц ограничивались 403/таймаутом; использованы доступные первичные поисковые копии.</p>
+<h2 id="ru-retail-h3">Республика</h2>
+<p><strong>Тип:</strong> книжная сеть с сопутствующими подарками, винилом и канцелярией; исследуется книжный раздел. <a href="https://www.respublica.ru/knigi/detskie-knigi" target="_blank" rel="noopener">Категория</a>, <a href="https://www.respublica.ru/knigi/detskie-knigi/hudozhestvennaya-literatura/316984-gruffalo" target="_blank" rel="noopener">пример детского SKU</a>, <a href="https://www.respublica.ru/delivery" target="_blank" rel="noopener">доставка</a>, <a href="https://www.respublica.ru/" target="_blank" rel="noopener">главная</a>.</p>
+<p><strong>Что наблюдалось:</strong> карточки с ценой/скидкой, корзиной, бонусами; сортировка/пагинация и «Показать ещё»; тематические/возрастные страницы; отдельная доступность доставки и самовывоза; программа лояльности, подарочная упаковка, сертификаты и «книгопоток». В примере «Груффало» есть реальный единичный отзыв с отметкой покупки, описание и состояние «Нет в наличии».</p>
+<p><strong>Наблюдаемый риск:</strong> на странице недоступного SKU шаблонный нижний текст всё равно говорит «Все книги в наличии». Это конкретное несоответствие текста состоянию товара. В нашем ТЗ коммерческие обещания должны подставляться из текущих данных; недоступный товар не должен выглядеть доступным в SEO-тексте.</p>
+<p><strong>Для проекта в Германии:</strong> перенять прозрачность доступности по каналу и подарочный сценарий; бонусы/скидки применять только после проверки немецких правил ценообразования. Не копировать российскую механику скидок автоматически.</p>
+<p><strong>Доставка:</strong> страница сервиса прямо указывает, что варианты формируются автоматически по складам, и предлагает выбор города; на момент проверки заявлена бесплатная доставка от 3000 ₽ по Москве, области и Петербургу. Это условие российского магазина, не требование для Германии.</p>
+<h2 id="ru-retail-h4">1. Книжный магазин «Москва» — moscowbooks.ru</h2>
+<p><strong>Статус:</strong> главная, детская категория, одна детская карточка и доставка открылись. Есть наличие, цена и действие покупки. Работоспособность оплаты и фактическое исполнение заказов не проверены.</p>
+<p><strong>Четыре первичных источника:</strong></p>
+<ol>
+<li><a href="https://www.moscowbooks.ru/" target="_blank" rel="noopener">Главная</a>.</li>
+<li><a href="https://www.moscowbooks.ru/books/childrens-literature/" target="_blank" rel="noopener">Детская литература</a>.</li>
+<li><a href="https://www.moscowbooks.ru/book/1271939/" target="_blank" rel="noopener">С. Я. Маршак — «Сказка о глупом мышонке», товар 1271939</a>.</li>
+<li><a href="https://www.moscowbooks.ru/pages/shipping_and_payment/" target="_blank" rel="noopener">Доставка и оплата</a>.</li>
+</ol>
+<p><strong>Реальные блоки и фильтры.</strong> На главной — поиск и расширенный поиск, новинки, бестселлеры, рекомендации, книги с автографами, подарочные издания. В детской категории подтверждены поиск внутри раздела, очистка фильтров, диапазон стоимости, тематические подразделы, рекомендуемый возраст <strong>0–3, 4–6, 7–10, 11–14, 15–17, 18+</strong>, автор, страна, серия, язык текста, язык оригинала, обложка/переплёт, доступность, издательство. Сортировки: название, цена, рейтинг, дата; отдельные переходы к новинкам и бестселлерам. Темы включают книги для самых маленьких, дошкольное/школьное развитие, сказки, стихи, комиксы, приключения и детективы. Источники: <a href="https://www.moscowbooks.ru/" target="_blank" rel="noopener">главная</a>, <a href="https://www.moscowbooks.ru/books/childrens-literature/" target="_blank" rel="noopener">детский раздел</a>.</p>
+<p><strong>Одна карточка.</strong> «Сказка о глупом мышонке», ISBN <strong>978-5-908158-99-2</strong>: возраст <strong>0–3</strong>, картон, 14 страниц, иллюстраторы, размеры, вес, тираж, дата поступления. Показаны наличие с датой/временем обновления и расположение в магазине: зал детской литературы, стеллаж 511.1, полка 3. Разделены цена в магазине <strong>680 ₽</strong> и интернет-цена <strong>578 ₽</strong>; есть выбор количества, покупка и ссылка проверки доставки в город. Ниже — аннотация, блок иллюстраций, переходы к автору, серии, издательству, разделу и рекомендации. Это книга-игра с вынимающейся фигуркой; формат объяснён в описании. Источник: <a href="https://www.moscowbooks.ru/book/1271939/" target="_blank" rel="noopener">карточка</a>.</p>
+<p><strong>Доставка.</strong> В опубликованной справке: самовывоз после подтверждения готовности, обработка от 4 часов, хранение 7 дней; подбор заказа <strong>60 ₽</strong>, от <strong>5000 ₽</strong> бесплатно. Курьер по Москве <strong>300 ₽</strong>, от <strong>5000 ₽</strong> бесплатно; срок определяется при выборе перевозчика. Для ПВЗ указан ориентир от двух рабочих дней, стоимость зависит от пункта; региональные способы и тарифы предлагаются по населённому пункту. Заказы от <strong>50 000 ₽</strong> отправляются по предоплате. Есть отдельный международный блок DHL с полной предоплатой и оговоркой о невключённых пошлинах/налогах. <strong>Доступность Германии и конкретный международный тариф не проверены</strong>; название перевозчика фиксирует содержание справки, а не независимую проверку его работы. Источник: <a href="https://www.moscowbooks.ru/pages/shipping_and_payment/" target="_blank" rel="noopener">доставка</a>.</p>
+<p><strong>Отличие и применимость к Германии — аналитический вывод.</strong> Сильный референс связи интернет-каталога с физическим магазином: разные цены явно подписаны, наличие привязано к времени, есть точное место книги. Возрастная фасета и язык оригинала полезны для многоязычного детского ассортимента. Ограничения: диапазон 15–17 выходит за целевые 3–16; наличие опции 18+ не доказывает, что детская выдача очищена от взрослых товаров. Российские тарифы и международные обещания не переносить в немецкий проект. Техническое SEO и индексируемость комбинаций фильтров не проверялись.</p>
+<h2 id="ru-retail-h5">2. Библио-Глобус — biblio-globus.ru</h2>
+<p><strong>Статус:</strong> главная, детская рубрика и указанная в рамках исследования карточка открылись. Есть цена, наличие и ссылка оформления заказа. Однако переход по ней в этой проверке привёл на <code>/Basket/Detail</code> с <strong>404</strong>: полноценный работающий checkout <strong>не подтверждён</strong>. Ошибка веб-доступа сама по себе не доказывает, что оформление недоступно обычному посетителю.</p>
+<p><strong>Основные первичные источники:</strong></p>
+<ol>
+<li><a href="https://www.biblio-globus.ru/" target="_blank" rel="noopener">Главная</a>.</li>
+<li><a href="https://www.biblio-globus.ru/catalog/index/200" target="_blank" rel="noopener">Книги для детей</a>.</li>
+<li><a href="https://www.biblio-globus.ru/product/11099995" target="_blank" rel="noopener">К. Д. Ушинский — «Рассказы и сказки», товар 11099995</a>.</li>
+<li><a href="https://www.biblio-globus.ru/Catalog/Index/2267" target="_blank" rel="noopener">Официальная категорийная страница с упоминанием способов доставки</a> — прочитано поисковое представление; это <strong>не актуальная тарифная справка</strong>.</li>
+</ol>
+<p><strong>Реальные блоки и навигация.</strong> Детская страница — прежде всего дерево рубрик: фольклор/мифы, российская и зарубежная художественная литература по жанрам, книги по мультфильмам, развитие дошкольников, подготовка к школе, познавательная литература для школьников, энциклопедии, дружба/любовь/семья, творчество и ремёсла. Числовые возрастные фильтры, цена и наличие <strong>на этой верхней детской странице не подтверждены</strong>. Не следует выдавать рубрики за интерактивные фасеты. Есть общий поиск с выбором области и избранное; главная содержит книжные новинки и тематические подборки. Источники: <a href="https://www.biblio-globus.ru/catalog/index/200" target="_blank" rel="noopener">детская рубрика</a>, <a href="https://www.biblio-globus.ru/" target="_blank" rel="noopener">главная</a>.</p>
+<p><strong>Одна карточка.</strong> «Рассказы и сказки», ISBN <strong>978-5-08-007699-2</strong>, издательство «Детская литература», 2026, 128 страниц, твёрдый переплёт. В аннотации — <strong>6+</strong>, младший школьный возраст. Видны артикул, тираж, габариты, вес, серия «Школьная библиотека. Начальная школа», цена в магазине <strong>496 ₽</strong> вместо 709 ₽, наличие и остаток <strong>2 экземпляра</strong>. Расположение: второй уровень, зал 11, секция 02, шкаф 10, полка 10. Есть «Оформить заказ», число заказов за последний месяц, оценки/отзывы, другие книги серии, просмотренные товары. Общие отзывы о магазине выше карточки не являются отзывами именно на книгу. Источник: <a href="https://www.biblio-globus.ru/product/11099995" target="_blank" rel="noopener">товар</a>.</p>
+<p><strong>Доставка — честное ограничение.</strong> На официальной странице языковой категории поисковая копия упоминает <strong>самовывоз, курьера и почту</strong>, в том числе доставку в Москву, Санкт-Петербург, Казань, Екатеринбург и другие города. Но актуальные тарифы, сроки, бесплатный порог и реальная доступность этих способов <strong>не установлены</strong>. На выбранной карточке обозначено наличие «в магазине», а не конкретный срок доставки. Подробную действующую страницу условий в пределах короткой проверки найти не удалось. Источники: <a href="https://www.biblio-globus.ru/Catalog/Index/2267" target="_blank" rel="noopener">категория с заявлением о доставке</a>, <a href="https://www.biblio-globus.ru/product/11099995" target="_blank" rel="noopener">карточка</a>.</p>
+<p><strong>Указанная в рамках исследования статья.</strong> Адрес <a href="https://www.biblio-globus.ru/mediacenter/news/article/304" target="_blank" rel="noopener">без завершающего слеша</a> вернул 404, а <a href="https://www.biblio-globus.ru/mediacenter/news/article/304/" target="_blank" rel="noopener">со слешем</a> открыл статью <strong>«Книжные лидеры за 2025»</strong> об итогах продаж. Это дополнительный редакционный референс, <strong>не источник условий доставки</strong> и не измеренный топ поисковых запросов.</p>
+<p><strong>Отличие и применимость к Германии — аналитический вывод.</strong> Полезны точный остаток и физические координаты книги, ссылки на серию и библиотечная глубина рубрикатора. Для родителей дерево по происхождению литературы и дисциплинам можно дополнить понятными возрастными/читательскими сценариями. Главный обнаруженный пробел — ясность дистанционной покупки: публичная карточка ориентирована на наличие в зале, отдельные актуальные условия доставки не подтверждены, переход к заказу дал ошибку. Не использовать этот профиль как доказательство полностью проверенной онлайн-доставки или оплаты.</p>
+<h1 id="ru-retail-h6">Российские книжные магазины: короткий добор</h1>
+<p>Проверено 20.10.2026. Только первичные конкурентные данные; без аудита, поисковых гипотез и частотностей.</p>
+<p>Проверены страницы каталога, товара и условий; оплаченные заказы не оформлялись, полный checkout и фактическая доставка не тестировались. Цены и тарифы — снимок страниц на дату проверки.</p>
+<h2 id="ru-retail-h7">1. Пиотровский — подходит для основной подборки</h2>
+<p><strong>Тип:</strong> книжный магазин разных издательств с точками в Москве и Екатеринбурге и собственным интернет-магазином.</p>
+<p><strong>Четыре первичных URL:</strong></p>
+<ol>
+<li><a href="https://piotrovsky.store/" target="_blank" rel="noopener">Главная / магазины и поиск</a></li>
+<li><a href="https://piotrovsky.store/catalog/knigi_dlya_detey/" target="_blank" rel="noopener">Каталог «Книги для детей»</a></li>
+<li><a href="https://piotrovsky.store/product/skorey_skorey/" target="_blank" rel="noopener">Товар «Скорей-скорей»</a></li>
+<li><a href="https://piotrovsky.store/delivery/" target="_blank" rel="noopener">Доставка и оплата</a></li>
+</ol>
+<p><strong>Покупка и товар.</strong> Карточка «Скорей-скорей», Мервей К.: 1540 ₽, кнопка «Купить», наличие в одном магазине с адресом точки. Издательство «Гудвин», 2026 год, твёрдый переплёт, 217 × 264, 28 страниц. Есть аннотация, сведения об авторе, избранное и похожие товары. Карточка прочитана прямым HTTP-запросом с ответом 200: веб-инструмент отдельно не смог её открыть. <a href="https://piotrovsky.store/product/skorey_skorey/" target="_blank" rel="noopener">Первичная карточка</a>.</p>
+<p><strong>Доставка.</strong> На сервисной странице перечислены Почта России, постаматы/отделения и курьер СДЭК, онлайн-оплата, бесплатный самовывоз. Для способов доставки по России заявлен бесплатный порог 5000 ₽; точная стоимость определяется при оформлении. Указанные сроки зависят от способа и адреса и фактической отправкой не проверены. <a href="https://piotrovsky.store/delivery/" target="_blank" rel="noopener">Условия магазина</a>.</p>
+<p><strong>Реальные особенности:</strong></p>
+<ul>
+<li>Детский каталог разделён по содержанию: мифология, животные, история, детский/подростковый детектив, техника, точные науки, научный комикс и другие направления. <a href="https://piotrovsky.store/catalog/knigi_dlya_detey/" target="_blank" rel="noopener">Каталог</a>.</li>
+<li>Поиск прямо заявляет поиск даже по редактору и переводчику; есть рецензии, события и отдельный рид-лист. Это элементы интерфейса, качество поиска не тестировалось. <a href="https://piotrovsky.store/" target="_blank" rel="noopener">Главная</a>.</li>
+<li>Наличие раскрывается по конкретному магазину, что полезно для самовывоза. Точный рекомендованный возраст, серия, полноценное превью и покупательские отзывы у выбранного товара не подтверждены. <a href="https://piotrovsky.store/product/skorey_skorey/" target="_blank" rel="noopener">Карточка</a>.</li>
+</ul>
+<p><strong>Вердикт:</strong> подходит как книжный ритейлер с детским ассортиментом. Это общий книжный магазин, а не исключительно детский.</p>
+<h2 id="ru-retail-h8">2. Порядок слов — подходит с оговоркой о подтверждении и оплате</h2>
+<p><strong>Тип:</strong> мультибрендовый независимый книжный магазин. Собственное издательское направление тоже есть, но ассортимент сайта не ограничен его продукцией.</p>
+<p><strong>Три первичных URL:</strong></p>
+<ol>
+<li><a href="https://wordorder.ru/catalog-ru/detskaya-literatura/" target="_blank" rel="noopener">Каталог «Детская литература»</a></li>
+<li><a href="https://wordorder.ru/catalog-ru/detskaya-literatura/chto-pridumal-ciolkovskiy/" target="_blank" rel="noopener">Товар «Что придумал Циолковский»</a></li>
+<li><a href="https://wordorder.ru/oplata-i-dostavka-ru" target="_blank" rel="noopener">Оплата и доставка / как оформить заказ</a></li>
+</ol>
+<p><strong>Покупка и товар.</strong> У «Что придумал Циолковский», Алексеева В. А., указаны 1500 ₽, «В наличии», количество и «Добавить в корзину». Есть аннотация, ISBN 5-907387-30-9, издательство «Арт Волхонка», год 2023, рекомендации других книг. Товарная страница получена прямым HTTP-запросом с ответом 200; веб-инструмент её отдельно не открыл. <a href="https://wordorder.ru/catalog-ru/detskaya-literatura/chto-pridumal-ciolkovskiy/" target="_blank" rel="noopener">Карточка</a>.</p>
+<p><strong>Механика заказа.</strong> Заказ оформляется на сайте. Магазин сначала подтверждает наличие и собирает книги, затем присылает ссылку на оплату в тот же или следующий рабочий день; ссылка действует два дня. Оплата при получении отсутствует. Это собственный онлайн-заказ с последующей оплатой, а не мгновенная оплата гарантированного остатка. <a href="https://wordorder.ru/oplata-i-dostavka-ru" target="_blank" rel="noopener">Объяснение самого магазина</a>.</p>
+<p><strong>Доставка.</strong> По России — Почта России от 250 ₽, её курьерская доставка от 400 ₽, СДЭК в ПВЗ от 200 ₽ и курьером от 400 ₽; стоимость рассчитывается при оформлении. Самовывоз в Петербурге бесплатный. Отправка оплаченных заказов заявлена по вторникам и пятницам. <a href="https://wordorder.ru/oplata-i-dostavka-ru" target="_blank" rel="noopener">Первичные условия</a>.</p>
+<p><strong>Реальные особенности:</strong></p>
+<ul>
+<li>Отдельный детский раздел с автором, ценой, товарными ссылками, пагинацией и собственной корзиной; в каталоге есть издания разных издательств. <a href="https://wordorder.ru/catalog-ru/detskaya-literatura/" target="_blank" rel="noopener">Каталог</a>.</li>
+<li>У выбранного товара есть библиографические сведения и блок «Также рекомендуем» с покупкой из рекомендаций. Возраст, серия, переплёт, страницы, превью и покупательские отзывы на этом примере не подтверждены. <a href="https://wordorder.ru/catalog-ru/detskaya-literatura/chto-pridumal-ciolkovskiy/" target="_blank" rel="noopener">Карточка</a>.</li>
+<li>Магазин объясняет необходимость проверки наличия: многие книги на полках существуют в единственном экземпляре. <a href="https://wordorder.ru/oplata-i-dostavka-ru" target="_blank" rel="noopener">Условия заказа</a>.</li>
+</ul>
+<p><strong>Вердикт:</strong> подходит как книжный ритейлер с собственным оформлением заказа. Если для общей десятки обязателен немедленный checkout с оплатой без ручного подтверждения, учитывать отдельно.</p>
+<h2 id="ru-retail-h9">Почему исходные кандидаты не засчитаны</h2>
+<div class="table-wrap"><table><thead><tr><th>Кандидат</th><th>Первичные URL</th><th>Что установлено</th><th>Решение</th></tr></thead><tbody>
+<tr><td>Маршак</td><td><a href="https://marshakbooks.ru/" target="_blank" rel="noopener">Главная/каталог</a>, <a href="https://marshakbooks.ru/o-nas/" target="_blank" rel="noopener">о нас</a></td><td>Есть книжные плитки, цены и значки корзины, но проверенная ссылка товара «Формула Z» возвращает на главную; отдельная рабочая карточка и условия доставки не найдены. На странице также много несвязанных материалов о недвижимости. Причина такого состояния сайта не установлена.</td><td><strong>Не подтверждён как рабочий интернет-магазин; не засчитывать на основании этой проверки.</strong></td></tr>
+<tr><td>Фаланстер</td><td><a href="https://falanster.ru/" target="_blank" rel="noopener">Официальная страница с заказом и доставкой</a></td><td>Магазин явно предлагает доставку Почтой России и СДЭК, но просит заказывать по почте/в Telegram/ВК. На открытой странице нет товарного каталога, карточек с корзиной и нормального checkout.</td><td><strong>Реальный книжный магазин с дистанционным заказом, но не соответствует требованию checkout.</strong></td></tr>
+<tr><td>Гиперион</td><td><a href="https://hyperionbook.ru/" target="_blank" rel="noopener">Клуб-магазин</a>, <a href="https://hyperionbooks.ru/" target="_blank" rel="noopener">его интернет-магазин</a>, <a href="https://hyperionbooks.ru/Books" target="_blank" rel="noopener">каталог</a>, <a href="https://hyperionbooks.ru/delivery" target="_blank" rel="noopener">доставка</a></td><td>Клуб ведёт на hyperionbooks.ru. Есть навигация по детским книгам и доставка, но каталог показывает предупреждение об обновлении сайта; доступный товар с покупкой в короткой проверке не найден. Сохранившиеся условия с «Яндекс.Кассой» не подтверждают работоспособность оплаты.</td><td><strong>Не засчитан как действующая замена с проверенной карточкой.</strong> Не путать с издательством hyperion-book.ru.</td></tr>
+</tbody></table></div></section><section id="sources"><h1 id="sources-h1">Реестр источников</h1>
+<p>Ссылки приводятся рядом с наблюдениями. Этот реестр позволяет быстро открыть источники; включение ссылки не означает проверку оплаты или всей страницы. Часть первичных страниц читалась через поисковое представление, что отмечено в профиле.</p>
+<ul>
+<li><a href="https://book24.ru/" target="_blank" rel="noopener">https://book24.ru/</a></li>
+<li><a href="https://book24.ru/catalog/pervye-knigi-malysha-razvitie-rebenka-1228/" target="_blank" rel="noopener">https://book24.ru/catalog/pervye-knigi-malysha-razvitie-rebenka-1228/</a></li>
+<li><a href="https://book24.ru/catalog/proza-dlya-detey-1165/" target="_blank" rel="noopener">https://book24.ru/catalog/proza-dlya-detey-1165/</a></li>
+<li><a href="https://book24.ru/delivery/" target="_blank" rel="noopener">https://book24.ru/delivery/</a></li>
+<li><a href="https://book24.ru/help/" target="_blank" rel="noopener">https://book24.ru/help/</a></li>
+<li><a href="https://book24.ru/o-nas/" target="_blank" rel="noopener">https://book24.ru/o-nas/</a></li>
+<li><a href="https://book24.ru/product/malen-kij-princ-ubilejnoe-izdanie-8734847/" target="_blank" rel="noopener">https://book24.ru/product/malen-kij-princ-ubilejnoe-izdanie-8734847/</a></li>
+<li><a href="https://buecher-wenner.buchhandlung.de/shop/magazine/130050/versand.html" target="_blank" rel="noopener">https://buecher-wenner.buchhandlung.de/shop/magazine/130050/versand.html</a></li>
+<li><a href="https://falanster.ru/" target="_blank" rel="noopener">https://falanster.ru/</a></li>
+<li><a href="https://graff.buchhandlung.de/" target="_blank" rel="noopener">https://graff.buchhandlung.de/</a></li>
+<li><a href="https://graff.buchhandlung.de/shop/article/57456600/axel_scheffler_julia_donaldson_die_grueffelo_oma.html" target="_blank" rel="noopener">https://graff.buchhandlung.de/shop/article/57456600/axel_scheffler_julia_donaldson_die_grueffelo_oma.html</a></li>
+<li><a href="https://graff.buchhandlung.de/shop/magazine/130029/versandkosten.html" target="_blank" rel="noopener">https://graff.buchhandlung.de/shop/magazine/130029/versandkosten.html</a></li>
+<li><a href="https://graff.buchhandlung.de/shop/magazine/9/kinderbuecher.html" target="_blank" rel="noopener">https://graff.buchhandlung.de/shop/magazine/9/kinderbuecher.html</a></li>
+<li><a href="https://hilfe.hugendubel.de/support/solutions/articles/103000187328-wie-hoch-sind-die-zu-erwartenden-versandkosten-" target="_blank" rel="noopener">https://hilfe.hugendubel.de/support/solutions/articles/103000187328-wie-hoch-sind-die-zu-erwartenden-versandkosten-</a></li>
+<li><a href="https://hyperionbook.ru/" target="_blank" rel="noopener">https://hyperionbook.ru/</a></li>
+<li><a href="https://hyperionbooks.ru/" target="_blank" rel="noopener">https://hyperionbooks.ru/</a></li>
+<li><a href="https://hyperionbooks.ru/Books" target="_blank" rel="noopener">https://hyperionbooks.ru/Books</a></li>
+<li><a href="https://hyperionbooks.ru/delivery" target="_blank" rel="noopener">https://hyperionbooks.ru/delivery</a></li>
+<li><a href="https://kibula.de/" target="_blank" rel="noopener">https://kibula.de/</a></li>
+<li><a href="https://kibula.de/collections/all" target="_blank" rel="noopener">https://kibula.de/collections/all</a></li>
+<li><a href="https://kibula.de/policies/shipping-policy" target="_blank" rel="noopener">https://kibula.de/policies/shipping-policy</a></li>
+<li><a href="https://kibula.de/products/das-grosse-goldene-disney-buch" target="_blank" rel="noopener">https://kibula.de/products/das-grosse-goldene-disney-buch</a></li>
+<li><a href="https://kibula.de/products/mein-erstes-liederbuch" target="_blank" rel="noopener">https://kibula.de/products/mein-erstes-liederbuch</a></li>
+<li><a href="https://kibula.de/products/mein-erstes-liederbuch.js" target="_blank" rel="noopener">https://kibula.de/products/mein-erstes-liederbuch.js</a></li>
+<li><a href="https://marshakbooks.ru/" target="_blank" rel="noopener">https://marshakbooks.ru/</a></li>
+<li><a href="https://marshakbooks.ru/o-nas/" target="_blank" rel="noopener">https://marshakbooks.ru/o-nas/</a></li>
+<li><a href="https://piotrovsky.store/" target="_blank" rel="noopener">https://piotrovsky.store/</a></li>
+<li><a href="https://piotrovsky.store/catalog/knigi_dlya_detey/" target="_blank" rel="noopener">https://piotrovsky.store/catalog/knigi_dlya_detey/</a></li>
+<li><a href="https://piotrovsky.store/delivery/" target="_blank" rel="noopener">https://piotrovsky.store/delivery/</a></li>
+<li><a href="https://piotrovsky.store/product/skorey_skorey/" target="_blank" rel="noopener">https://piotrovsky.store/product/skorey_skorey/</a></li>
+<li><a href="https://schmitz-junior.buchkatalog.de/" target="_blank" rel="noopener">https://schmitz-junior.buchkatalog.de/</a></li>
+<li><a href="https://unternehmen.thalia.de/geschaeftsfelder/lehmanns-media/" target="_blank" rel="noopener">https://unternehmen.thalia.de/geschaeftsfelder/lehmanns-media/</a></li>
+<li><a href="https://unternehmen.thalia.de/pressemeldungen/thalia-uebernimmt-den-online-buchhaendler-buecher-de/" target="_blank" rel="noopener">https://unternehmen.thalia.de/pressemeldungen/thalia-uebernimmt-den-online-buchhaendler-buecher-de/</a></li>
+<li><a href="https://wordorder.ru/catalog-ru/detskaya-literatura/" target="_blank" rel="noopener">https://wordorder.ru/catalog-ru/detskaya-literatura/</a></li>
+<li><a href="https://wordorder.ru/catalog-ru/detskaya-literatura/chto-pridumal-ciolkovskiy/" target="_blank" rel="noopener">https://wordorder.ru/catalog-ru/detskaya-literatura/chto-pridumal-ciolkovskiy/</a></li>
+<li><a href="https://wordorder.ru/oplata-i-dostavka-ru" target="_blank" rel="noopener">https://wordorder.ru/oplata-i-dostavka-ru</a></li>
+<li><a href="https://www.biblio-globus.ru/" target="_blank" rel="noopener">https://www.biblio-globus.ru/</a></li>
+<li><a href="https://www.biblio-globus.ru/Catalog/Index/2267" target="_blank" rel="noopener">https://www.biblio-globus.ru/Catalog/Index/2267</a></li>
+<li><a href="https://www.biblio-globus.ru/catalog/index/200" target="_blank" rel="noopener">https://www.biblio-globus.ru/catalog/index/200</a></li>
+<li><a href="https://www.biblio-globus.ru/mediacenter/news/article/304" target="_blank" rel="noopener">https://www.biblio-globus.ru/mediacenter/news/article/304</a></li>
+<li><a href="https://www.biblio-globus.ru/mediacenter/news/article/304/" target="_blank" rel="noopener">https://www.biblio-globus.ru/mediacenter/news/article/304/</a></li>
+<li><a href="https://www.biblio-globus.ru/product/11099995" target="_blank" rel="noopener">https://www.biblio-globus.ru/product/11099995</a></li>
+<li><a href="https://www.bookvoed.ru/" target="_blank" rel="noopener">https://www.bookvoed.ru/</a></li>
+<li><a href="https://www.bookvoed.ru/about" target="_blank" rel="noopener">https://www.bookvoed.ru/about</a></li>
+<li><a href="https://www.bookvoed.ru/catalog/detskaya-hudozhestvennaya-literatura-110091" target="_blank" rel="noopener">https://www.bookvoed.ru/catalog/detskaya-hudozhestvennaya-literatura-110091</a></li>
+<li><a href="https://www.bookvoed.ru/catalog/detskie-knigi-110090" target="_blank" rel="noopener">https://www.bookvoed.ru/catalog/detskie-knigi-110090</a></li>
+<li><a href="https://www.bookvoed.ru/help" target="_blank" rel="noopener">https://www.bookvoed.ru/help</a></li>
+<li><a href="https://www.bookvoed.ru/product/gagloev-e-kotektiv-smesnoj-kosacij-detektiv-dom-s-privideniami-8753692" target="_blank" rel="noopener">https://www.bookvoed.ru/product/gagloev-e-kotektiv-smesnoj-kosacij-detektiv-dom-s-privideniami-8753692</a></li>
+<li><a href="https://www.buch7.de/" target="_blank" rel="noopener">https://www.buch7.de/</a></li>
+<li><a href="https://www.buch7.de/produkt/die-grueffelo-oma-axel-scheffler/1064068865?ean=9783407790699" target="_blank" rel="noopener">https://www.buch7.de/produkt/die-grueffelo-oma-axel-scheffler/1064068865?ean=9783407790699</a></li>
+<li><a href="https://www.buch7.de/seite/das-buch7-prinzip" target="_blank" rel="noopener">https://www.buch7.de/seite/das-buch7-prinzip</a></li>
+<li><a href="https://www.buch7.de/seite/lieferbedingungen-details" target="_blank" rel="noopener">https://www.buch7.de/seite/lieferbedingungen-details</a></li>
+<li><a href="https://www.buch7.de/warengruppe/kinder-und-jugend" target="_blank" rel="noopener">https://www.buch7.de/warengruppe/kinder-und-jugend</a></li>
+<li><a href="https://www.buchhandlung-godolt.de/" target="_blank" rel="noopener">https://www.buchhandlung-godolt.de/</a></li>
+<li><a href="https://www.buchkatalog.de/" target="_blank" rel="noopener">https://www.buchkatalog.de/</a></li>
+<li><a href="https://www.buchkatalog.de/ZahlungUndVersand" target="_blank" rel="noopener">https://www.buchkatalog.de/ZahlungUndVersand</a></li>
+<li><a href="https://www.buchkatalog.de/aboutUs" target="_blank" rel="noopener">https://www.buchkatalog.de/aboutUs</a></li>
+<li><a href="https://www.buchkatalog.de/buecher-kinder-und-jugend" target="_blank" rel="noopener">https://www.buchkatalog.de/buecher-kinder-und-jugend</a></li>
+<li><a href="https://www.buchkatalog.de/product/4099276460891949670" target="_blank" rel="noopener">https://www.buchkatalog.de/product/4099276460891949670</a></li>
+<li><a href="https://www.buchkatalog.de/termsAndCondition" target="_blank" rel="noopener">https://www.buchkatalog.de/termsAndCondition</a></li>
+<li><a href="https://www.buecher-wenner.de/" target="_blank" rel="noopener">https://www.buecher-wenner.de/</a></li>
+<li><a href="https://www.buecher-wenner.de/agb" target="_blank" rel="noopener">https://www.buecher-wenner.de/agb</a></li>
+<li><a href="https://www.buecher.de/" target="_blank" rel="noopener">https://www.buecher.de/</a></li>
+<li><a href="https://www.buecher.de/hilfe/faq-bol-buecher" target="_blank" rel="noopener">https://www.buecher.de/hilfe/faq-bol-buecher</a></li>
+<li><a href="https://www.buecher.de/hilfe/kaufprozess/versand-lieferung" target="_blank" rel="noopener">https://www.buecher.de/hilfe/kaufprozess/versand-lieferung</a></li>
+<li><a href="https://www.buecher.de/kategorie/kinderbuecher-970/" target="_blank" rel="noopener">https://www.buecher.de/kategorie/kinderbuecher-970/</a></li>
+<li><a href="https://www.buecher.de/kategorie/nach-alter-1230/" target="_blank" rel="noopener">https://www.buecher.de/kategorie/nach-alter-1230/</a></li>
+<li><a href="https://www.buecher.de/shop/home/artikeldetails/A1076826761" target="_blank" rel="noopener">https://www.buecher.de/shop/home/artikeldetails/A1076826761</a></li>
+<li><a href="https://www.chitai-gorod.ru/" target="_blank" rel="noopener">https://www.chitai-gorod.ru/</a></li>
+<li><a href="https://www.chitai-gorod.ru/catalog/books/detskaya-poznavatelnaya-literatura-110100" target="_blank" rel="noopener">https://www.chitai-gorod.ru/catalog/books/detskaya-poznavatelnaya-literatura-110100</a></li>
+<li><a href="https://www.chitai-gorod.ru/catalog/books/razvitie-rebenka-110127" target="_blank" rel="noopener">https://www.chitai-gorod.ru/catalog/books/razvitie-rebenka-110127</a></li>
+<li><a href="https://www.chitai-gorod.ru/delivery" target="_blank" rel="noopener">https://www.chitai-gorod.ru/delivery</a></li>
+<li><a href="https://www.chitai-gorod.ru/product/gagloev-e-kotektiv-smesnoj-kosacij-detektiv-dom-s-privideniami-3129903" target="_blank" rel="noopener">https://www.chitai-gorod.ru/product/gagloev-e-kotektiv-smesnoj-kosacij-detektiv-dom-s-privideniami-3129903</a></li>
+<li><a href="https://www.genialokal.de/" target="_blank" rel="noopener">https://www.genialokal.de/</a></li>
+<li><a href="https://www.genialokal.de/Hilfe/Versandkosten/" target="_blank" rel="noopener">https://www.genialokal.de/Hilfe/Versandkosten/</a></li>
+<li><a href="https://www.genialokal.de/Produkt/Eric-Carle/Die-kleine-Raupe-Nimmersatt_lid_6807617.html" target="_blank" rel="noopener">https://www.genialokal.de/Produkt/Eric-Carle/Die-kleine-Raupe-Nimmersatt_lid_6807617.html</a></li>
+<li><a href="https://www.genialokal.de/Produkte/Buecher/Kinderbuecher/Alle-Kinderbuecher/" target="_blank" rel="noopener">https://www.genialokal.de/Produkte/Buecher/Kinderbuecher/Alle-Kinderbuecher/</a></li>
+<li><a href="https://www.genialokal.de/Produktseiten/Kinderbuecher/" target="_blank" rel="noopener">https://www.genialokal.de/Produktseiten/Kinderbuecher/</a></li>
+<li><a href="https://www.genialokal.de/Ueber-uns/" target="_blank" rel="noopener">https://www.genialokal.de/Ueber-uns/</a></li>
+<li><a href="https://www.graff.de/" target="_blank" rel="noopener">https://www.graff.de/</a></li>
+<li><a href="https://www.heymann-buecher.de/shop/magazine/9/kinderbuecher.html" target="_blank" rel="noopener">https://www.heymann-buecher.de/shop/magazine/9/kinderbuecher.html</a></li>
+<li><a href="https://www.hugendubel.de/de" target="_blank" rel="noopener">https://www.hugendubel.de/de</a></li>
+<li><a href="https://www.hugendubel.de/de/buch_gebunden/daniel_bleckmann-dunkle_kuenste_1_pudel_panik-52704662-produkt-details.html" target="_blank" rel="noopener">https://www.hugendubel.de/de/buch_gebunden/daniel_bleckmann-dunkle_kuenste_1_pudel_panik-52704662-produkt-details.html</a></li>
+<li><a href="https://www.hugendubel.de/de/category/80366/kinder_jugendbuecher.html" target="_blank" rel="noopener">https://www.hugendubel.de/de/category/80366/kinder_jugendbuecher.html</a></li>
+<li><a href="https://www.hugendubel.de/de/category/9/kinderbuecher.html" target="_blank" rel="noopener">https://www.hugendubel.de/de/category/9/kinderbuecher.html</a></li>
+<li><a href="https://www.kinderbuch.eu/" target="_blank" rel="noopener">https://www.kinderbuch.eu/</a></li>
+<li><a href="https://www.kinderbuch.eu/Mein-liebstes-Pustebuch-Ich-geh-mit-meiner-Laterne-Maengelexemplar/9783845865829M" target="_blank" rel="noopener">https://www.kinderbuch.eu/Mein-liebstes-Pustebuch-Ich-geh-mit-meiner-Laterne-Maengelexemplar/9783845865829M</a></li>
+<li><a href="https://www.kinderbuch.eu/allgemeine-geschaeftsbedingungen" target="_blank" rel="noopener">https://www.kinderbuch.eu/allgemeine-geschaeftsbedingungen</a></li>
+<li><a href="https://www.kinderbuch.eu/buecher-nach-alter" target="_blank" rel="noopener">https://www.kinderbuch.eu/buecher-nach-alter</a></li>
+<li><a href="https://www.kinderbuch.eu/faq-kinderbuecher" target="_blank" rel="noopener">https://www.kinderbuch.eu/faq-kinderbuecher</a></li>
+<li><a href="https://www.kinderbuch.eu/versand-und-zahlungsbedingungen" target="_blank" rel="noopener">https://www.kinderbuch.eu/versand-und-zahlungsbedingungen</a></li>
+<li><a href="https://www.kulturkaufhaus.de/de/buecher/kinderbuecher" target="_blank" rel="noopener">https://www.kulturkaufhaus.de/de/buecher/kinderbuecher</a></li>
+<li><a href="https://www.kulturkaufhaus.de/de/buecher/kinderbuecher/bilderbuecher" target="_blank" rel="noopener">https://www.kulturkaufhaus.de/de/buecher/kinderbuecher/bilderbuecher</a></li>
+<li><a href="https://www.kulturkaufhaus.de/de/detail/ISBN-9783407790699/Scheffler-Axel/Die-Gr%C3%BCffelo-Oma" target="_blank" rel="noopener">https://www.kulturkaufhaus.de/de/detail/ISBN-9783407790699/Scheffler-Axel/Die-Gr%C3%BCffelo-Oma</a></li>
+<li><a href="https://www.kulturkaufhaus.de/de/service/versand" target="_blank" rel="noopener">https://www.kulturkaufhaus.de/de/service/versand</a></li>
+<li><a href="https://www.kulturkaufhaus.de/de/start" target="_blank" rel="noopener">https://www.kulturkaufhaus.de/de/start</a></li>
+<li><a href="https://www.labirint.ru/" target="_blank" rel="noopener">https://www.labirint.ru/</a></li>
+<li><a href="https://www.labirint.ru/books/1000764/" target="_blank" rel="noopener">https://www.labirint.ru/books/1000764/</a></li>
+<li><a href="https://www.labirint.ru/genres/1850/" target="_blank" rel="noopener">https://www.labirint.ru/genres/1850/</a></li>
+<li><a href="https://www.labirint.ru/help/?cardhelp=446" target="_blank" rel="noopener">https://www.labirint.ru/help/?cardhelp=446</a></li>
+<li><a href="https://www.labirint.ru/help/?clause=140" target="_blank" rel="noopener">https://www.labirint.ru/help/?clause=140</a></li>
+<li><a href="https://www.lehmanns.de/" target="_blank" rel="noopener">https://www.lehmanns.de/</a></li>
+<li><a href="https://www.lehmanns.de/fachgebiet/25-kinder-jugendbuch" target="_blank" rel="noopener">https://www.lehmanns.de/fachgebiet/25-kinder-jugendbuch</a></li>
+<li><a href="https://www.lehmanns.de/fachgebiet/25-kinder-jugendbuch/10-bilderbuecher" target="_blank" rel="noopener">https://www.lehmanns.de/fachgebiet/25-kinder-jugendbuch/10-bilderbuecher</a></li>
+<li><a href="https://www.lehmanns.de/fachgebiet/25-kinder-jugendbuch/60-kinderbuecher-bis-11-jahre" target="_blank" rel="noopener">https://www.lehmanns.de/fachgebiet/25-kinder-jugendbuch/60-kinderbuecher-bis-11-jahre</a></li>
+<li><a href="https://www.lehmanns.de/page/versandkosten" target="_blank" rel="noopener">https://www.lehmanns.de/page/versandkosten</a></li>
+<li><a href="https://www.lehmanns.de/shop/kinderbuch-jugenbuch/52956204-9783968430140-der-gluecksverkaeufer" target="_blank" rel="noopener">https://www.lehmanns.de/shop/kinderbuch-jugenbuch/52956204-9783968430140-der-gluecksverkaeufer</a></li>
+<li><a href="https://www.moscowbooks.ru/" target="_blank" rel="noopener">https://www.moscowbooks.ru/</a></li>
+<li><a href="https://www.moscowbooks.ru/book/1271939/" target="_blank" rel="noopener">https://www.moscowbooks.ru/book/1271939/</a></li>
+<li><a href="https://www.moscowbooks.ru/books/childrens-literature/" target="_blank" rel="noopener">https://www.moscowbooks.ru/books/childrens-literature/</a></li>
+<li><a href="https://www.moscowbooks.ru/pages/shipping_and_payment/" target="_blank" rel="noopener">https://www.moscowbooks.ru/pages/shipping_and_payment/</a></li>
+<li><a href="https://www.osiander.de/" target="_blank" rel="noopener">https://www.osiander.de/</a></li>
+<li><a href="https://www.podpisnie.ru/" target="_blank" rel="noopener">https://www.podpisnie.ru/</a></li>
+<li><a href="https://www.podpisnie.ru/books/gruffalo-12/" target="_blank" rel="noopener">https://www.podpisnie.ru/books/gruffalo-12/</a></li>
+<li><a href="https://www.podpisnie.ru/categories/knigi/detskie-knigi/" target="_blank" rel="noopener">https://www.podpisnie.ru/categories/knigi/detskie-knigi/</a></li>
+<li><a href="https://www.pustet.de/shop/" target="_blank" rel="noopener">https://www.pustet.de/shop/</a></li>
+<li><a href="https://www.pustet.de/shop/article/57456600/axel_scheffler_julia_donaldson_die_grueffelo_oma.html" target="_blank" rel="noopener">https://www.pustet.de/shop/article/57456600/axel_scheffler_julia_donaldson_die_grueffelo_oma.html</a></li>
+<li><a href="https://www.pustet.de/shop/magazine/130029/versandkosten.html" target="_blank" rel="noopener">https://www.pustet.de/shop/magazine/130029/versandkosten.html</a></li>
+<li><a href="https://www.pustet.de/shop/magazine/9/kinderbuecher.html" target="_blank" rel="noopener">https://www.pustet.de/shop/magazine/9/kinderbuecher.html</a></li>
+<li><a href="https://www.respublica.ru/" target="_blank" rel="noopener">https://www.respublica.ru/</a></li>
+<li><a href="https://www.respublica.ru/delivery" target="_blank" rel="noopener">https://www.respublica.ru/delivery</a></li>
+<li><a href="https://www.respublica.ru/knigi/detskie-knigi" target="_blank" rel="noopener">https://www.respublica.ru/knigi/detskie-knigi</a></li>
+<li><a href="https://www.respublica.ru/knigi/detskie-knigi/hudozhestvennaya-literatura/316984-gruffalo" target="_blank" rel="noopener">https://www.respublica.ru/knigi/detskie-knigi/hudozhestvennaya-literatura/316984-gruffalo</a></li>
+<li><a href="https://www.reuffel.de/" target="_blank" rel="noopener">https://www.reuffel.de/</a></li>
+<li><a href="https://www.reuffel.de/detail/ISBN-9783707426700/Brezina-Thomas/Tiger-Team---Der-kleine-Gruselladen" target="_blank" rel="noopener">https://www.reuffel.de/detail/ISBN-9783707426700/Brezina-Thomas/Tiger-Team---Der-kleine-Gruselladen</a></li>
+<li><a href="https://www.reuffel.de/reuffel/juristisches/agb" target="_blank" rel="noopener">https://www.reuffel.de/reuffel/juristisches/agb</a></li>
+<li><a href="https://www.rombach.de/shop/" target="_blank" rel="noopener">https://www.rombach.de/shop/</a></li>
+<li><a href="https://www.rombach.de/shop/magazine/1/buecher.html" target="_blank" rel="noopener">https://www.rombach.de/shop/magazine/1/buecher.html</a></li>
+<li><a href="https://www.rupprecht.de/shop/" target="_blank" rel="noopener">https://www.rupprecht.de/shop/</a></li>
+<li><a href="https://www.rupprecht.de/shop/article/13826638/rick_riordan_percy_jackson_01_diebe_im_olymp.html" target="_blank" rel="noopener">https://www.rupprecht.de/shop/article/13826638/rick_riordan_percy_jackson_01_diebe_im_olymp.html</a></li>
+<li><a href="https://www.rupprecht.de/shop/magazine/130029/versandkosten.html" target="_blank" rel="noopener">https://www.rupprecht.de/shop/magazine/130029/versandkosten.html</a></li>
+<li><a href="https://www.rupprecht.de/shop/magazine/8329/kinderbuecher.html" target="_blank" rel="noopener">https://www.rupprecht.de/shop/magazine/8329/kinderbuecher.html</a></li>
+<li><a href="https://www.schmitt-hahn.de/shop/" target="_blank" rel="noopener">https://www.schmitt-hahn.de/shop/</a></li>
+<li><a href="https://www.schmitzjunior.de/" target="_blank" rel="noopener">https://www.schmitzjunior.de/</a></li>
+<li><a href="https://www.thalia.de/hilfe/kaufprozess/versand-lieferung" target="_blank" rel="noopener">https://www.thalia.de/hilfe/kaufprozess/versand-lieferung</a></li>
+<li><a href="https://www.thalia.de/kategorie/kinderbuecher-27200/" target="_blank" rel="noopener">https://www.thalia.de/kategorie/kinderbuecher-27200/</a></li>
+<li><a href="https://www.thalia.de/kategorie/kinderbuecher-970/" target="_blank" rel="noopener">https://www.thalia.de/kategorie/kinderbuecher-970/</a></li>
+<li><a href="https://www.thalia.de/shop/home/artikeldetails/A1077532229" target="_blank" rel="noopener">https://www.thalia.de/shop/home/artikeldetails/A1077532229</a></li>
+<li><a href="https://www.thalia.de/vorteile/osiander/informationen" target="_blank" rel="noopener">https://www.thalia.de/vorteile/osiander/informationen</a></li>
+</ul></section><p class="small">Исследование 20 октября 2026 · Возрастная рамка обновлена 22 октября 2026 · Источники и ограничения приведены в соответствующих разделах.</p></main><script>const p=document.getElementById('priority'),q=document.getElementById('reqsearch');function filter(){if(!p)return;let n=0;document.querySelectorAll('#backlog tbody tr').forEach(r=>{let text=r.textContent;let match=(!p.value||text.includes(p.value))&&(!q.value||text.toLowerCase().includes(q.value.toLowerCase()));r.classList.toggle('hidden',!match);if(match)n++;});document.getElementById('found').textContent='Показано требований: '+n;}if(p){p.addEventListener('change',filter);q.addEventListener('input',filter);filter();}document.querySelectorAll('td').forEach(c=>{if(/^P[012]$/.test(c.textContent.trim()))c.className='priority '+c.textContent.trim().toLowerCase();});</script></body></html>

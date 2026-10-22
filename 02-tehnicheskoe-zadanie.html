@@ -1,0 +1,76 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Техническое задание на создание магазина детских книг</title><style>
+.local-toc{background:#f5f6f0;border:1px solid #dce1dc;border-radius:6px;padding:12px 16px;margin:20px 0}.local-toc summary{cursor:pointer;color:#17614f;font-size:14px;font-weight:600}.local-toc nav{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:8px 20px;padding-top:14px}.local-toc a{font-size:13px;line-height:1.45;text-decoration:none}
+:root{--ink:#172b32;--muted:#5a6d72;--paper:#f5f3ed;--line:#dce1dc;--accent:#17614f;--gold:#d5aa63}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 'Segoe UI',Arial,sans-serif}a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:anywhere}a:hover{color:#a05e19}aside{position:fixed;inset:0 auto 0 0;width:250px;padding:36px 24px;background:#102e29;color:#fff;overflow:auto}.brand{font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:#b2c9be}.sidebar-title{font-size:25px;line-height:1.25;margin:14px 0 28px;font-weight:600}aside a{display:block;color:#c7d8d1;padding:9px 0;text-decoration:none;font-size:14px;line-height:1.4}aside a:hover{color:white}.side-note{border-top:1px solid #456058;margin-top:24px;padding-top:18px;font-size:12px;color:#a5beb3}main{margin-left:250px;padding:42px 54px 90px;max-width:1600px}.cover{background:#fff;padding:44px;border:1px solid var(--line);border-radius:10px;margin-bottom:28px}.kicker{font-size:12px;color:var(--accent);font-weight:700;letter-spacing:.12em;text-transform:uppercase}.cover h1{font-size:42px;line-height:1.15;margin:18px 0 20px;max-width:880px;letter-spacing:-.025em}.cover p{max-width:850px;font-size:18px;color:var(--muted)}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}.stat{border-top:3px solid var(--gold);padding-top:12px}.stat strong{display:block;font-size:26px;color:var(--ink)}.stat span{font-size:13px;color:var(--muted)}section{background:white;border:1px solid var(--line);border-radius:10px;padding:36px 40px;margin:24px 0}section>h1{margin-top:0;color:var(--accent);font-size:30px;line-height:1.2}h2{font-size:23px;line-height:1.3;margin:38px 0 15px;letter-spacing:-.01em}h3{font-size:19px;margin:28px 0 10px}h4{font-size:17px}p{margin:12px 0}li{margin:6px 0}ul,ol{padding-left:24px}.table-wrap{overflow:auto;margin:22px 0;border:1px solid var(--line);border-radius:7px}table{width:100%;border-collapse:collapse;font-size:13px;line-height:1.5}th{text-align:left;background:#edf2ee;font-weight:600;color:#203c32}td,th{padding:13px 14px;vertical-align:top;border-bottom:1px solid var(--line);min-width:115px}td:first-child,th:first-child{min-width:85px}tr:last-child td{border-bottom:0}tbody tr:hover{background:#f7f8f4}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f0f3ee;padding:20px;border-radius:6px;font-size:13px}code{font-size:.9em;background:#f0f3ee;padding:1px 3px;border-radius:3px}blockquote{border-left:3px solid var(--gold);margin:18px 0;padding:10px 20px;background:#fbf7ef}hr{border:0;border-top:1px solid var(--line);margin:32px 0}.toolbar{display:flex;gap:14px;flex-wrap:wrap;align-items:center;padding:18px;background:#edf2ee;border-radius:8px;margin-bottom:22px}.toolbar label{font-size:13px}.toolbar input,.toolbar select{font:inherit;border:1px solid #b8c9bf;background:white;padding:9px;border-radius:4px}.toolbar input{min-width:240px}button{background:var(--accent);color:white;border:0;border-radius:5px;padding:10px 15px;font:inherit;cursor:pointer}.top-actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:20px}.small{font-size:13px;color:var(--muted)}.priority{font-weight:700;white-space:nowrap}.p0{color:#9a441f}.p1{color:#17614f}.p2{color:#5a6d72}.tag{display:inline-block;font-size:12px;background:#edf2ee;border-radius:20px;padding:4px 10px;margin-right:5px}.hidden{display:none!important}
+@media(max-width:1000px){aside{position:relative;width:100%;padding:20px 24px}.sidebar-title{font-size:21px;margin:6px 0 12px}aside nav{display:flex;gap:14px;flex-wrap:wrap}aside a{padding:3px 0}.side-note{display:none}main{margin:0;padding:20px}section{padding:26px 24px}.cover{padding:28px}.cover h1{font-size:32px}.stats{gap:12px}.stat strong{font-size:23px}}
+@media(max-width:540px){body{font-size:15px}main{padding:12px}.cover h1{font-size:29px}.cover{padding:24px}section{padding:24px 18px}.stats{grid-template-columns:1fr}.stat{padding-top:8px}.cover p{font-size:16px}h2{font-size:21px}.toolbar input{min-width:100%;width:100%}}
+@media print{aside,.toolbar,.top-actions{display:none!important}body{background:#fff;font-size:10pt}main{margin:0;padding:0;max-width:none}section,.cover{border:0;padding:0;margin:0 0 24pt;border-radius:0}section{break-before:page}h1,h2,h3{break-after:avoid}.cover h1{font-size:28pt}.cover{min-height:220pt}.table-wrap{overflow:visible;border:0}table{font-size:8pt}th,td{padding:6pt;min-width:0!important}thead{display:table-header-group}tr{break-inside:avoid}a{color:inherit}pre{font-size:8pt}p,li{orphans:3;widows:3}.hidden{display:revert!important}}
+</style></head><body><aside><div class="brand">Исследование и проектирование</div><div class="sidebar-title">Детские книги<br>Германия 3–16</div><nav><a href="#requirements">Страницы и функции сайта</a></nav><div class="side-note">Исследование 20 октября 2026<br>Обновлено 22 октября 2026<br>Без универсальных маркетплейсов<br><br>Основные страницы и функции нового магазина.</div></aside><main><header class="cover"><div class="kicker">Книжная торговля · Германия и Россия</div><h1>Техническое задание на создание магазина детских книг</h1><p>Сайт с нуля: основные страницы, каталог, выбор книги и оформление заказа.</p><div class="stats"><div class="stat"><strong>С нуля</strong><span>новый интернет-магазин</span></div><div class="stat"><strong>3–16</strong><span>возраст читателей</span></div><div class="stat"><strong>4</strong><span>возрастные группы</span></div></div><div class="top-actions"><button onclick="window.print()">Печать / сохранить PDF</button><span class="small">Разделы документа раскрываются ниже · поиск по тексту Ctrl+F</span></div></header><section id="requirements"><h1 id="requirements-h1">Техническое задание на создание магазина детских книг</h1>
+<details class="local-toc"><summary>Разделы этой части</summary><nav><a href="#requirements-h2">1. Задача сайта</a><a href="#requirements-h3">2. Структура сайта</a><a href="#requirements-h4">3. Главная страница</a><a href="#requirements-h5">4. Каталог и выбор книги</a><a href="#requirements-h9">5. Карточка книги</a><a href="#requirements-h10">6. Поиск</a><a href="#requirements-h11">7. Корзина и оформление заказа</a><a href="#requirements-h12">8. Внешний вид и управление магазином</a><a href="#requirements-h13">9. Запуск нового сайта</a></nav></details>
+<h2 id="requirements-h2">1. Задача сайта</h2>
+<p>Создать с нуля интернет-магазин детских книг с доставкой по Германии. Существующего сайта нет. Аудитория — покупатели книг для детей <strong>от 3 до 16 лет</strong>: родители, родственники и подростки, самостоятельно выбирающие чтение.</p>
+<p>Сайт должен помогать найти подходящую книгу, посмотреть её содержание и иллюстрации, узнать стоимость и условия доставки, оформить заказ.</p>
+<p>Основной акцент — удобный выбор по возрасту, интересам и уровню чтения. Визуально магазин должен подходить и дошкольному, и подростковому сегменту.</p>
+<h2 id="requirements-h3">2. Структура сайта</h2>
+<p>Основные страницы:</p>
+<ul>
+<li>Главная.</li>
+<li>Каталог с разделами и фильтрами.</li>
+<li>Карточка книги.</li>
+<li>Результаты поиска.</li>
+<li>Корзина и оформление заказа.</li>
+<li>Доставка и оплата.</li>
+<li>О магазине и контакты.</li>
+<li>Служебные страницы с данными продавца и условиями покупки.</li>
+</ul>
+<p>В верхней части сайта разместить логотип, каталог, заметный поиск и корзину. Ссылки на доставку и контакты должны быть легко доступны. В нижней части — данные магазина, помощь покупателю и условия покупки.</p>
+<p>Избранное, личный кабинет, отзывы и подарочные сертификаты можно добавить отдельным этапом, если они нужны владельцу магазина.</p>
+<h2 id="requirements-h4">3. Главная страница</h2>
+<p>Рекомендуемый порядок блоков:</p>
+<ol>
+<li>Короткое представление магазина: какие книги продаются и куда доставляются.</li>
+<li>Выбор по возрасту: <strong>3–5, 6–8, 9–12, 13–16 лет</strong>.</li>
+<li>Выбор по формату: книжки-картинки, чтение вслух, первое самостоятельное чтение, художественные и познавательные книги, комиксы, подростковая литература.</li>
+<li>Одна или две подборки книг, выбранные магазином: например, новинки или рекомендации.</li>
+<li>Популярные темы и интересы.</li>
+<li>Краткая информация о доставке, оплате и самом магазине.</li>
+</ol>
+<p>Не перегружать страницу однотипными товарными лентами и всплывающими окнами. Обложки книг должны быть хорошо различимы. Условия бесплатной доставки, сроки и преимущества показывать по реальным данным магазина.</p>
+<h2 id="requirements-h5">4. Каталог и выбор книги</h2>
+<h3 id="requirements-h6">Возраст</h3>
+<p>Основные группы: <strong>3–5, 6–8, 9–12 и 13–16 лет</strong>. Разделы для детей младше 3 лет не нужны. Официальная маркировка 0+ не равна рекомендации для младенцев: книга может подходить аудитории магазина, если это следует из её содержания и возрастной рекомендации.</p>
+<h3 id="requirements-h7">Темы и форматы</h3>
+<p>Предусмотреть разделы по интересам: животные, природа, динозавры, техника, космос, приключения, детективы, фэнтези, юмор, дружба, чувства и школа. Публиковать только те разделы, для которых есть книги в ассортименте.</p>
+<p>Книги для чтения вслух и самостоятельного чтения должны различаться. Возраст ребёнка и уровень чтения — разные характеристики.</p>
+<h3 id="requirements-h8">Фильтры и список товаров</h3>
+<p>Основные фильтры: возраст, язык книги, формат, тема, наличие и цена. Автор, серия и издательство добавляются при необходимости. Выбранные фильтры должны быть видны; нужен понятный сброс.</p>
+<p>В товарной плитке показать обложку, название, автора, возрастную рекомендацию, язык, цену и наличие. Добавить сортировку по цене и новизне. На телефоне фильтры должны удобно открываться и закрываться.</p>
+<h2 id="requirements-h9">5. Карточка книги</h2>
+<p>На первом экране покупатель должен увидеть:</p>
+<ul>
+<li>Обложку, название, автора и иллюстратора.</li>
+<li>Язык и формат издания.</li>
+<li>Возрастную рекомендацию.</li>
+<li>Цену и наличие.</li>
+<li>Информацию о доставке или ссылку на её условия.</li>
+<li>Кнопку добавления в корзину.</li>
+</ul>
+<p>Ниже разместить описание, характеристики и дополнительные изображения. Основные характеристики: издательство, ISBN, переплёт, число страниц и размеры. Если есть разрешённые к публикации развороты или фрагмент, дать возможность их посмотреть и увеличить.</p>
+<p>Полезный дополнительный блок — короткое объяснение, кому подойдёт книга: для чтения вместе со взрослым, первых самостоятельных историй или определённого интереса. Материал для этого блока предоставляет магазин.</p>
+<p>Для серий показать другие тома и их порядок. Похожие книги подбирать по понятному признаку: возрасту, теме, автору или серии.</p>
+<p>Разные языки и форматы издания не должны путаться. При выборе другого варианта обновляются цена и наличие. Если книги нет, показать это явно; при необходимости можно добавить уведомление о поступлении.</p>
+<h2 id="requirements-h10">6. Поиск</h2>
+<p>Поиск должен находить книги по названию, автору, серии и ISBN. Желательно учитывать распространённые опечатки. Если ассортимент многоязычный, язык конкретного издания должен быть виден в результатах.</p>
+<p>Если ничего не найдено, предложить изменить запрос, перейти в каталог или связаться с магазином. При возврате из карточки сохранять выбранные фильтры и положение в списке.</p>
+<h2 id="requirements-h11">7. Корзина и оформление заказа</h2>
+<p>В корзине показать выбранные книги, варианты изданий, количество, цены и итоговую сумму. Покупатель может изменить количество или удалить товар.</p>
+<p>Оформление — без обязательной регистрации. Нужны контакт покупателя, адрес, выбор доступной доставки и оплаты. Стоимость доставки и полная сумма должны быть понятны до подтверждения заказа.</p>
+<p>Способы оплаты и доставки подключаются по согласованным условиям магазина. Данные о наличии должны обновляться, чтобы нельзя было заказать недоступный товар как имеющийся на складе.</p>
+<p>После заказа покупатель получает подтверждение с номером, составом и суммой. При ошибке оплаты корзина и введённые данные сохраняются, покупатель может повторить попытку.</p>
+<h2 id="requirements-h12">8. Внешний вид и управление магазином</h2>
+<p>Сайт должен удобно работать на телефоне и компьютере. Нужны читаемые тексты, заметные кнопки, простая навигация и удобный просмотр обложек и разворотов. Фильтры и панели не должны перекрывать важные действия.</p>
+<p>В системе управления предусмотреть добавление и изменение книг, цен, наличия, фотографий, разделов и подборок, а также просмотр и обработку заказов.</p>
+<p>Данные для наполнения — ассортимент, описания, изображения, языки, цены, остатки, условия доставки и сведения о продавце — предоставляет владелец магазина. Подборки на главной должны редактироваться без изменения кода сайта.</p>
+<h2 id="requirements-h13">9. Запуск нового сайта</h2>
+<p>Для первого запуска потребуется подключить домен, защищённое соединение, рабочую почту магазина, согласованные способы оплаты и доставки. Заполнить основные страницы и каталог, проверить покупку на телефоне и компьютере, получение подтверждений и отображение наличия.</p>
+<p>До начала работы владельцу магазина нужно определить язык интерфейса и книг, стартовый ассортимент, способы оплаты, условия доставки и необходимые дополнительные функции. На этой основе выбираются платформа, объём работ и стоимость создания сайта.</p></section><p class="small">Создание нового магазина детских книг для возраста 3–16 лет.</p></main><script>const p=document.getElementById('priority'),q=document.getElementById('reqsearch');function filter(){if(!p)return;let n=0;document.querySelectorAll('#backlog tbody tr').forEach(r=>{let text=r.textContent;let match=(!p.value||text.includes(p.value))&&(!q.value||text.toLowerCase().includes(q.value.toLowerCase()));r.classList.toggle('hidden',!match);if(match)n++;});document.getElementById('found').textContent='Показано требований: '+n;}if(p){p.addEventListener('change',filter);q.addEventListener('input',filter);filter();}document.querySelectorAll('td').forEach(c=>{if(/^P[012]$/.test(c.textContent.trim()))c.className='priority '+c.textContent.trim().toLowerCase();});</script></body></html>
